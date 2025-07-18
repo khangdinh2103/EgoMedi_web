@@ -1,0 +1,170 @@
+/* About Section CSS for EgoMedi */
+
+/* About Section Styles */
+.about-section {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Left side - Feature Grid */
+.about-left {
+  position: relative;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.feature-item {
+  text-align: left;
+  padding: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.feature-item:hover {
+  background-color: #14dbf4;
+}
+
+.feature-number {
+  font-size: 5.625rem; /* 90px */
+  font-weight: bold;
+  color: #00bcd4;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1;
+  width: 203px;
+  transition: color 0.3s ease;
+}
+
+.feature-item:hover .feature-number {
+  color: white;
+}
+
+.feature-title {
+  font-size: 1.125rem; /* 18px */
+  color: #333;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  position: relative;
+  width: 203px;
+  transition: color 0.3s ease;
+}
+
+.feature-item:hover .feature-title {
+  color: white;
+}
+
+.feature-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 12.5%; /* left-1/8 equivalent */
+  transform: translateX(-50%);
+  width: 36px; /* w-9 */
+  height: 4px; /* h-1 */
+  background-color: #00bcd4;
+  transition: background-color 0.3s ease;
+}
+
+.feature-item:hover .feature-title::after {
+  background-color: white;
+}
+
+/* Right side - Content */
+.about-right {
+  padding-left: 40px;
+}
+
+.about-header {
+  margin-bottom: 2px;
+}
+
+.about-subtitle {
+  color: #00bcd4;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0px 0 0 0;
+  line-height: 1.2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.highlight {
+  color: #00bcd4;
+}
+
+.about-description {
+  color: #666;
+  line-height: 1.7;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.about-description p {
+  margin-bottom: 3px;
+}
+
+.features-list {
+  margin-bottom: 4px;
+}
+
+.feature-check {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  gap: 15px;
+}
+
+.checkmark {
+  color: #00bcd4;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.about-button {
+  margin-top: 3px;
+}
+
+/* Background decoration */
+.about-section::before {
+  content: '';
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 400px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><circle cx="50" cy="50" r="3" fill="%2300bcd4" opacity="0.3"/><circle cx="100" cy="80" r="2" fill="%2300bcd4" opacity="0.4"/><circle cx="150" cy="60" r="4" fill="%2300bcd4" opacity="0.2"/><circle cx="200" cy="120" r="3" fill="%2300bcd4" opacity="0.5"/><circle cx="250" cy="90" r="2" fill="%2300bcd4" opacity="0.3"/><circle cx="300" cy="150" r="5" fill="%2300bcd4" opacity="0.2"/><circle cx="80" cy="180" r="3" fill="%2300bcd4" opacity="0.4"/><circle cx="180" cy="200" r="2" fill="%2300bcd4" opacity="0.3"/><circle cx="280" cy="220" r="4" fill="%2300bcd4" opacity="0.2"/><circle cx="120" cy="250" r="3" fill="%2300bcd4" opacity="0.5"/><circle cx="220" cy="280" r="2" fill="%2300bcd4" opacity="0.4"/><circle cx="320" cy="300" r="3" fill="%2300bcd4" opacity="0.3"/><line x1="50" y1="50" x2="100" y2="80" stroke="%2300bcd4" stroke-width="1" opacity="0.2"/><line x1="100" y1="80" x2="150" y2="60" stroke="%2300bcd4" stroke-width="1" opacity="0.2"/><line x1="150" y1="60" x2="200" y2="120" stroke="%2300bcd4" stroke-width="1" opacity="0.2"/><line x1="200" y1="120" x2="250" y2="90" stroke="%2300bcd4" stroke-width="1" opacity="0.2"/><line x1="250" y1="90" x2="300" y2="150" stroke="%2300bcd4" stroke-width="1" opacity="0.2"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.1;
+  z-index: 0;
+}

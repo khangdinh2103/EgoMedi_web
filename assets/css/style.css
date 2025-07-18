@@ -1,0 +1,22 @@
+/* Main CSS file for EgoMedi - Import all styles */
+
+/* Import base styles */
+@import url('./base.css');
+
+/* Import animations */
+@import url('./animations.css');
+
+/* Import button styles */
+@import url('./buttons.css');
+
+/* Import component styles */
+@import url('./components.css');
+
+/* Import about section styles */
+@import url('./about.css');
+
+/* Import medical tests section styles */
+@import url('./medical-tests.css');
+
+/* Import responsive styles */
+@import url('./responsive.css');

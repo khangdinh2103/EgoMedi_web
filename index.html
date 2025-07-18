@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EgoMedi - Trang chủ</title>
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 font-montserrat">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Slider Section -->
+    <section class="relative w-full h-[600px] overflow-hidden">
+        <div class="relative w-full h-full">
+            <img src="//bizweb.dktcdn.net/thumb/large/100/382/483/themes/758809/assets/slider_1.jpg?1705909553460" 
+                 alt="EgoMedi Slider" 
+                 class="w-full h-full object-cover">
+            
+            <!-- Optional overlay for better text readability if needed -->
+            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+            
+            <!-- Optional slide content overlay -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center text-white z-10">
+                    <!-- You can add slide content here if needed -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+            <div class="container mx-auto px-4 py-20">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-5xl font-bold mb-6">
+                        Chăm sóc sức khỏe toàn diện
+                    </h1>
+                    <p class="text-xl mb-8 text-blue-100">
+                        EgoMedi - Đồng hành cùng bạn trên hành trình chăm sóc sức khỏe và làm đẹp
+                    </p>
+                    <div class="space-x-4">
+                        <button class="btn-blue-wave bg-white text-blue-600 px-8 py-3 rounded-2xl font-semibold hover:bg-gray-100 transition duration-300">
+                            Tìm hiểu thêm
+                        </button>
+                        <button class="btn-blue-wave border-2 border-white text-white px-8 py-3  font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+                            Liên hệ ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Dịch vụ của chúng tôi</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Chúng tôi cung cấp các dịch vụ chăm sóc sức khỏe và làm đẹp chuyên nghiệp
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition duration-300">
+                        <div class="text-blue-600 text-5xl mb-4">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Khám sức khỏe</h3>
+                        <p class="text-gray-600">
+                            Dịch vụ khám sức khỏe tổng quát với đội ngũ bác sĩ giàu kinh nghiệm
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition duration-300">
+                        <div class="text-blue-600 text-5xl mb-4">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Làm đẹp</h3>
+                        <p class="text-gray-600">
+                            Các dịch vụ làm đẹp hiện đại với công nghệ tiên tiến
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition duration-300">
+                        <div class="text-blue-600 text-5xl mb-4">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Tư vấn</h3>
+                        <p class="text-gray-600">
+                            Tư vấn sức khỏe và dinh dưỡng từ các chuyên gia hàng đầu
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <!-- Left side - 4 buttons -->
+                    <div class="about-left">
+                        <div class="feature-grid">
+                            <div class="feature-item text-left">
+                                <div class="feature-number">1</div>
+                                <h3 class="feature-title">Thiết bị hiện đại</h3>
+                            </div>
+                            <div class="feature-item text-left">
+                                <div class="feature-number">2</div>
+                                <h3 class="feature-title">Chất lượng cao</h3>
+                            </div>
+                            <div class="feature-item text-left">
+                                <div class="feature-number">3</div>
+                                <h3 class="feature-title">Đội ngũ lành nghề</h3>
+                            </div>
+                            <div class="feature-item text-left">
+                                <div class="feature-number">4</div>
+                                <h3 class="feature-title">Chăm sóc chu đáo</h3>
+                            </div>
+                        </div>
+                    </div>
+                     
+                    <!-- Right side - Content -->
+                    <div class="about-right">
+                        <div class="about-header">
+                            <span class="about-subtitle">Giới thiệu</span>
+                            <h2 class="about-title">
+                                Chúng nhận<br />
+                                Xét nghiệm <span class="highlight">chuẩn đoán</span>
+                            </h2>
+                        </div>
+                        
+                        <div class="about-description">
+                            <p>
+                                Ego Medical Center tự hào về các kỹ năng được đào tạo cần thiết cho việc 
+                                chuẩn bị kiểm tra đa dạng. Chúng tôi tin tưởng rằng chuẩn đoán kịp thời có thể 
+                                loại bỏ vết sẹo của nhiều bệnh nghiêm trọng. Nó có thể được thực hiện nếu 
+                                bạn tham khảo ý kiến bác sĩ cho các bệnh nghĩ ngờ.
+                            </p>
+                            
+                            <div class="features-list">
+                                <div class="feature-check">
+                                    <span class="checkmark">✓</span>
+                                    <span>Tất cả các báo cáo cho khách hàng được thực hiện đơn giản và dễ hiểu</span>
+                                </div>
+                                <div class="feature-check">
+                                    <span class="checkmark">✓</span>
+                                    <span>Trang web thân thiện với người dùng</span>
+                                </div>
+                                <div class="feature-check">
+                                    <span class="checkmark">✓</span>
+                                    <span>Trang web dễ dàng được tùy chỉnh dựa vào thiết lập tối ưu.</span>
+                                </div>
+                            </div>
+                            
+                            <div class="about-button">
+                                <button class="btn-blue-wave bg-cyan-500 text-white px-8 py-2 rounded-full font-semibold hover:bg-cyan-600 transition duration-300" 
+                                        style="background-color: #00bcd4; border: none; cursor: pointer;"
+                                        onclick="alert('Đặt lịch ngay!')">
+                                    Đặt lịch ngay →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+         <!-- Medical Tests Section -->
+        <section class="py-20  bg-gray-100 px-8 ">
+            <div class="max-w-7xl mx-auto px-16 sm:px-6 lg:px-16 ">
+                <!-- Section Title -->
+                <div class="text-center mb-16 relative">
+                <!-- Chữ nền phía sau -->
+                <span class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-6 text-7xl font-bold text-white opacity-70 z-0 pointer-events-none select-none font-montserrat">
+                    TỔNG QUÁT
+                </span>
+
+                <!-- Tiêu đề chính -->
+                <h2 class="relative z-10 text-4xl font-bold text-gray-800 mb-4 font-montserrat">
+                    Xét nghiệm chuẩn đoán
+                </h2>
+
+                <div class="w-14 h-1 bg-cyan-500 mx-auto relative z-10"></div>
+                </div>
+
+
+
+               <!-- Tests Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8 mb-20">
+                <!-- Tầm soát ung thư -->
+                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                    data-test="cancer-screening">
+                    <div class="mb-4 transition-all duration-300 flex justify-center">
+                    <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_1.png?1705909553460" alt="Tầm soát ung thư"
+                        class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
+                    </div>
+                    <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Tầm soát ung thư</h3>
+                </div>
+
+                <!-- Mô học -->
+                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                    data-test="histology">
+                    <div class="mb-4 transition-all duration-300 flex justify-center">
+                    <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_2.png?1705909553460" alt="Mô học"
+                        class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
+                    </div>
+                    <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Mô học</h3>
+                </div>
+
+                <!-- Khám tổng quát -->
+                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                    data-test="general-exam">
+                    <div class="mb-4 transition-all duration-300 flex justify-center">
+                    <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_3.png?1705909553460" alt="Khám tổng quát"
+                        class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
+                    </div>
+                    <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Khám tổng quát</h3>
+                </div>
+
+                <!-- Xét nghiệm máu -->
+                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                    data-test="blood-test">
+                    <div class="mb-4 transition-all duration-300 flex justify-center">
+                    <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_4.png?1705909553460" alt="Xét nghiệm máu"
+                        class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
+                    </div>
+                    <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Xét nghiệm máu</h3>
+                </div>
+
+                <!-- Xét nghiệm di truyền -->
+                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                    data-test="genetic-test">
+                    <div class="mb-4 transition-all duration-300 flex justify-center">
+                    <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_5.png?1705909553460" alt="Xét nghiệm di truyền"
+                        class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
+                    </div>
+                    <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Xét nghiệm di truyền</h3>
+                </div>
+
+                <!-- Tế bào học -->
+                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                    data-test="cytology">
+                    <div class="mb-4 transition-all duration-300 flex justify-center">
+                    <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_6.png?1705909553460" alt="Tế bào học"
+                        class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
+                    </div>
+                    <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Tế bào học</h3>
+                </div>
+                </div>
+
+
+                <!-- Test Detail -->
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 ">
+                    <div class="order-2 lg:order-1">
+                        <img id="test-image" 
+                             src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/img_tab_6.jpg?1705909553460" 
+                             alt="Tầm soát ung thư" 
+                             class="w-full h-80 lg:h-96 object-cover  shadow-xl transition-all duration-500" />
+                    </div>
+                    
+                    <div class="order-1 lg:order-2">
+                        <h3 id="test-title" class="text-2xl font-bold text-gray-800 mb-6 font-montserrat">Tầm soát ung thư</h3>
+                        
+                        <div id="test-description" class="text-[13px] space-y-4 text-gray-500 font-montserrat leading-relaxed">
+                            <p>
+                                Mỗi năm Việt Nam có hơn <strong class="text-gray-800">126.000 ca mắc mới</strong> mắc bệnh ung thư, trong số đó 
+                                khoảng 94.000 người tử vong vì phát hiện quá muộn. Việt Nam cũng là một 
+                                trong những quốc gia có tỷ lệ người dân đi tầm soát ung thư thấp nhất. Nếu 
+                                được tầm soát và phát hiện sớm, những căn bệnh ung thư sau có thể chữa 
+                                khỏi hoàn toàn:
+                            </p>
+                            
+                            <div class="space-y-1">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-cyan-500 mr-3"></i>
+                                    <span>Ung thư phổi</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-cyan-500 mr-3"></i>
+                                    <span>Ung thư gan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-cyan-500 mr-3"></i>
+                                    <span>Ung thư da day</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-cyan-500 mr-3"></i>
+                                    <span>Ung thư vú</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-cyan-500 mr-3"></i>
+                                    <span>Ung thư cổ tử cung</span>
+                                </div>
+                            </div>
+                            
+                            <p>
+                                Tầm soát ung thư là phương thức chẩn đoán nhằm phát hiện ra mầm mống 
+                                ung thư hoặc khi khối u c...
+                            </p>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                            <button class="btn-blue-wave h-10 w-auto bg-cyan-500 hover:bg-cyan-600 text-white text-[13px] px-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 font-montserrat">
+                                Xem thêm ››
+                            </button>
+                            <button class="btn-blue-wave h-10 w-auto bg-cyan-500 hover:bg-cyan-600 text-white text-[13px] px-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 font-montserrat">
+                                Đặt lịch ngay →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medical Products Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Title -->
+                <div class="text-center mb-16 relative">
+                    <!-- Chữ nền phía sau -->
+                    <span class="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-6 text-7xl font-bold text-gray-100 opacity-70 z-0 pointer-events-none select-none font-montserrat">
+                        Tốt nhất
+                    </span>
+
+                    <!-- Subtitle -->
+                    <p class="relative z-10 text-cyan-500 text-lg font-medium mb-2 font-montserrat">
+                        Chúng tôi có
+                    </p>
+                    
+                    <!-- Tiêu đề chính -->
+                    <h2 class="relative z-10 text-3xl font-bold text-gray-800 mb-4 font-montserrat">
+                        Sản phẩm y tế
+                    </h2>
+
+                    <div class="w-14 h-1 bg-cyan-500 mx-auto relative z-10"></div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="max-w-lg h-8 w-60 mx-auto mb-16">
+                    <div class="relative">
+                        <input type="text" 
+                               placeholder="Tìm sản phẩm khác..." 
+                               class="w-full text-[14px] h-8 px-6 py-4 pr-14 border border-gray-200 rounded-full focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-gray-600 font-montserrat">
+                        <button class="absolute right-0 top-1/2  -translate-y-1/2 text-cyan-500 p-3 rounded-full transition-colors duration-300">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Products Grid 4x2 -->
+                <div id="products-container" class="mb-12">
+                    <!-- Products will be dynamically generated by JavaScript -->
+                </div>
+
+                <!-- View More Button -->
+                <div class="text-center">
+                    <button class="btn-blue-wave bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 font-montserrat">
+                        Xem tất cả sản phẩm
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Liên hệ với chúng tôi</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất
+                    </p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-blue-600 text-2xl mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Địa chỉ</h3>
+                                <p class="text-gray-600">123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="text-blue-600 text-2xl mt-1">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Điện thoại</h3>
+                                <p class="text-gray-600">+84 123 456 789</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="text-blue-600 text-2xl mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Email</h3>
+                                <p class="text-gray-600">info@egomedi.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="Họ và tên" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Số điện thoại" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <textarea placeholder="Tin nhắn" rows="4" 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="btn-blue-wave w-full bg-blue-600 text-white py-3 rounded-2xl font-semibold hover:bg-blue-700 transition duration-300">
+                            Gửi tin nhắn
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/medical-tests.js"></script>
+    <script src="./assets/js/product-grid.js"></script>
+</body>
+</html>

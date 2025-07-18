@@ -1,0 +1,86 @@
+/* Responsive CSS for EgoMedi */
+
+/* Responsive text */
+@media (max-width: 640px) {
+    .text-responsive-xl {
+        font-size: 2.5rem;
+    }
+    .text-responsive-lg {
+        font-size: 1.5rem;
+    }
+}
+
+/* About Section Responsive */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about-right {
+    padding-left: 0;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .feature-number {
+    font-size: 3rem;
+  }
+  
+  .about-title {
+    font-size: 2rem;
+  }
+  
+  .about-section::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .feature-item {
+    padding: 15px;
+  }
+}
+
+/* Medical Tests Responsive */
+@media (max-width: 768px) {
+  .tests-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .test-detail {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .test-detail-left img {
+    height: 250px;
+  }
+  
+  .test-buttons {
+    flex-direction: column;
+  }
+  
+  .test-buttons .btn {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .tests-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .test-item {
+    padding: 20px;
+  }
+}

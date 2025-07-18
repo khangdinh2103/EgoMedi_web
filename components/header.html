@@ -1,0 +1,105 @@
+<!-- Header Component -->
+<header style="font-family: 'Montserrat', sans-serif;">
+  <!-- Top Bar -->
+  <div class="bg-[#00bcd4] text-white py-3 px-4">
+    <div class="container mx-auto flex justify-between items-center text-sm px-8">
+      <div class="flex items-center space-x-6">
+        <div class="flex items-center">
+          <i class="fas fa-clock mr-2"></i>
+          <span>Mon-Fri: 9:00-17:00</span>
+        </div>
+        <a href="tel:+1234567890" class="flex items-center text-white hover:text-cyan-300 transition-colors duration-200">
+          <i class="fas fa-phone mr-2"></i>
+          <span>1900 6750</span>
+        </a>
+        <a href="mailto:info@example.com" class="flex items-center text-white hover:text-cyan-300 transition-colors duration-200">
+          <i class="fas fa-envelope mr-2"></i>
+          <span>ego.deploy@gmail.com</span>
+        </a>
+      </div>
+      <div class="flex items-center space-x-2">
+        <a href="#" class="text-white hover:text-cyan-200 transition-colors duration-200">Đăng nhập</a>
+        <span>/</span>
+        <a href="#" class="text-white hover:text-cyan-200 transition-colors duration-200">Đăng ký</a>
+      </div>
+    </div>
+  </div>
+
+    <!-- Main Header -->
+    <div class="mx-8 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/logo.png?1705909553460" alt="Company Logo" class="h-auto w-[170px]">
+      </div>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex space-x-10">
+        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all">
+          <a href="#" class="text-[15px] font-bold text-cyan-400 transition-colors duration-200">Trang chủ</a>
+        </div>
+        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all">
+          <a href="#" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200">Giới thiệu</a>
+        </div>
+
+        <!-- Dropdown Menu: Đặt lịch hẹn -->
+        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all relative">
+          <a href="#" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200 flex items-center">
+            Đặt lịch hẹn
+            <i class="fas fa-chevron-down ml-2 text-sm"></i>
+          </a>
+          <div class="absolute left-0 mt-60 w-60 bg-white shadow-lg z-50 transform transition-all duration-500 ease-in-out origin-top group-hover:opacity-100 group-hover:scale-100 group-hover:skew-x-0 group-hover:translate-y-0 opacity-0 scale-90 -skew-x-12 -translate-y-3 ">
+            <a href="#" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Lịch hẹn cá nhân</a>
+            <a href="#" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Lịch hẹn nhóm</a>
+            <a href="#" class="block px-4 py-3 text-black hover:text-cyan-600 transition-colors duration-200">Tư vấn trực tuyến</a>
+          </div>
+        </div>
+
+        <!-- Dropdown Menu: Sản phẩm -->
+        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all relative">
+          <a href="#" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200 flex items-center">
+            Sản phẩm
+            <i class="fas fa-chevron-down ml-2 text-sm"></i>
+          </a>
+          <div class="absolute left-0  mt-60  w-60 bg-white shadow-lg z-50 transform transition-all duration-500 ease-in-out origin-top group-hover:opacity-100 group-hover:scale-100 group-hover:skew-x-0 group-hover:translate-y-0 opacity-0 scale-90 -skew-x-12 -translate-y-3 ">
+            <a href="#" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Sản phẩm 1</a>
+            <a href="#" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Sản phẩm 2</a>
+            <a href="#" class="block px-4 py-3 text-black hover:text-cyan-600 transition-colors duration-200">Sản phẩm 3</a>
+          </div>
+        </div>
+
+        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all">
+          <a href="#" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200">Tin tức</a>
+        </div>
+        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all">
+          <a href="#" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200">Liên hệ</a>
+        </div>
+      </nav>
+
+      <!-- Search and Cart -->
+      <div class="flex items-center space-x-0 text-sm">
+        <!-- Search -->
+        <!-- Search -->
+        <div class="relative group">
+          <button class="bg-white p-2">
+            <i class="fas fa-search text-sm text-gray-800"></i>
+          </button>
+          <div class="absolute right-0 top-0 mt-0 bg-white border border-gray-300 rounded-full shadow-lg flex items-center px-4 py-2 z-50 w-[260px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200">
+            <input type="text" placeholder="Tìm kiếm..." class="flex-1 bg-transparent focus:outline-none text-gray-700">
+            <i class="fas fa-search text-gray-500"></i>
+          </div>
+        </div>
+
+
+        <!-- Divider -->
+        <div class="text-gray-400 mx-4">|</div>
+
+        <!-- Cart -->
+        <button class="bg-white p-2 flex items-center focus:outline-none">
+          <i class="fas fa-shopping-basket mr-2 text-xl text-gray-800"></i>
+          <span class="font-bold text-gray-800 hover:text-cyan-400 transition-colors duration-200">Giỏ hàng (0)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+</body>
+</html>
