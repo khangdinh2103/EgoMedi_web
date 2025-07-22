@@ -60,6 +60,26 @@
     left: 0;
 }
 
+/* Active menu item styles */
+.nav-item.active {
+    border-top-color: #00bcd4 !important;
+    border-top-width: 4px !important;
+}
+
+.nav-item.active a {
+    color: #00bcd4 !important;
+}
+
+/* Mobile active menu item styles */
+.mobile-nav-item.active-mobile {
+    background-color: rgba(0, 188, 212, 0.05);
+}
+
+.mobile-nav-item.active-mobile a {
+    color: #00bcd4 !important;
+    font-weight: bold;
+}
+
 /* Dropdown animation */
 .dropdown {
     transform: translateY(-10px);
@@ -98,6 +118,78 @@
 
 .service-card:hover::before {
     opacity: 1;
+}
+
+/* Floating Action Button (FAB) */
+.fab-container {
+    position: fixed;
+    z-index: 99;
+    left: 20px; /* Position on left side */
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.fab-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #00bcd4;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.fab-button.large {
+    width: 70px;
+    height: 70px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 0 5px rgba(0, 188, 212, 0.2);
+}
+
+.fab-button.phone {
+    background-color: #00bcd4;
+    opacity: 0;
+    transform: translateY(20px) scale(0);
+}
+
+.fab-button.messenger {
+    background-color: #00bcd4;
+    opacity: 0;
+    transform: translateY(20px) scale(0);
+}
+
+.fab-button.zalo {
+    background-color: #00bcd4;
+    opacity: 0;
+    transform: translateY(20px) scale(0);
+}
+
+.fab-button.help {
+    background-color: #00bcd4;
+    z-index: 100;
+}
+
+/* Show animation classes */
+.fab-button.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.fab-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.fab-button.show:hover {
+    transform: scale(1.1);
+}
     animation: shine 0.6s ease;
 }
 

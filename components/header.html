@@ -17,7 +17,8 @@
           <span>ego.deploy@gmail.com</span>
         </a>
       </div>
-      <div class="flex items-center space-x-2">
+      <!-- Login/Register links - hidden on mobile -->
+      <div class="hidden md:flex items-center space-x-2">
         <a href="#" class="text-white hover:text-cyan-200 transition-colors duration-200">Đăng nhập</a>
         <span>/</span>
         <a href="#" class="text-white hover:text-cyan-200 transition-colors duration-200">Đăng ký</a>
@@ -26,60 +27,64 @@
   </div>
 
     <!-- Main Header -->
-    <div class="mx-8 flex items-center justify-between">
-      <!-- Logo -->
-      <div class="flex items-center">
-        <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/logo.png?1705909553460" alt="Company Logo" class="h-auto w-[170px]">
+    <div class="px-4 md:px-8 bg-white flex items-center justify-between py-4 md:py-0">
+      <!-- Mobile Hamburger Menu Button - only visible on mobile -->
+      <button id="mobile-menu-button" class="md:hidden block p-2 focus:outline-none">
+        <i class="fas fa-bars text-xl text-gray-800"></i>
+      </button>
+
+      <!-- Logo - centered on mobile -->
+      <div class="flex items-center mx-auto md:mx-0 logo-container">
+        <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/logo.png?1705909553460" alt="Company Logo" class="h-auto w-[140px] md:w-[170px]">
       </div>
 
-      <!-- Navigation -->
-      <nav class="hidden md:flex space-x-10">
-        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all">
-          <a href="#" class="text-[15px] font-bold text-cyan-400 transition-colors duration-200">Trang chủ</a>
+      <!-- Desktop Navigation - hidden on mobile -->
+      <nav class="hidden md:flex space-x-10" id="main-nav">
+        <div class="nav-item group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all" data-page="index.html">
+          <a href="index.html" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200">Trang chủ</a>
         </div>
-        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all">
-          <a href="#" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200">Giới thiệu</a>
+        <div class="nav-item group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all" data-page="gioi-thieu.html">
+          <a href="gioi-thieu.html" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200">Giới thiệu</a>
         </div>
 
         <!-- Dropdown Menu: Đặt lịch hẹn -->
-        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all relative">
-          <a href="#" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200 flex items-center">
+        <div class="nav-item group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all relative" data-page="appointment.html">
+          <a href="appointment.html" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200 flex items-center">
             Đặt lịch hẹn
             <i class="fas fa-chevron-down ml-2 text-sm"></i>
           </a>
           <div class="absolute left-0 mt-60 w-60 bg-white shadow-lg z-50 transform transition-all duration-500 ease-in-out origin-top group-hover:opacity-100 group-hover:scale-100 group-hover:skew-x-0 group-hover:translate-y-0 opacity-0 scale-90 -skew-x-12 -translate-y-3 ">
-            <a href="#" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Lịch hẹn cá nhân</a>
-            <a href="#" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Lịch hẹn nhóm</a>
-            <a href="#" class="block px-4 py-3 text-black hover:text-cyan-600 transition-colors duration-200">Tư vấn trực tuyến</a>
+            <a href="personal-appointment.html" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Lịch hẹn cá nhân</a>
+            <a href="group-appointment.html" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Lịch hẹn nhóm</a>
+            <a href="online-consultation.html" class="block px-4 py-3 text-black hover:text-cyan-600 transition-colors duration-200">Tư vấn trực tuyến</a>
           </div>
         </div>
 
         <!-- Dropdown Menu: Sản phẩm -->
-        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all relative">
-          <a href="#" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200 flex items-center">
+        <div class="nav-item group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all relative" data-page="products.html">
+          <a href="products.html" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200 flex items-center">
             Sản phẩm
             <i class="fas fa-chevron-down ml-2 text-sm"></i>
           </a>
           <div class="absolute left-0  mt-60  w-60 bg-white shadow-lg z-50 transform transition-all duration-500 ease-in-out origin-top group-hover:opacity-100 group-hover:scale-100 group-hover:skew-x-0 group-hover:translate-y-0 opacity-0 scale-90 -skew-x-12 -translate-y-3 ">
-            <a href="#" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Sản phẩm 1</a>
-            <a href="#" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Sản phẩm 2</a>
-            <a href="#" class="block px-4 py-3 text-black hover:text-cyan-600 transition-colors duration-200">Sản phẩm 3</a>
+            <a href="product-1.html" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Sản phẩm 1</a>
+            <a href="product-2.html" class="block px-4 py-3 text-black border-b border-gray-200 hover:text-cyan-600 transition-colors duration-200">Sản phẩm 2</a>
+            <a href="product-3.html" class="block px-4 py-3 text-black hover:text-cyan-600 transition-colors duration-200">Sản phẩm 3</a>
           </div>
         </div>
 
-        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all">
-          <a href="#" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200">Tin tức</a>
+        <div class="nav-item group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all" data-page="news.html">
+          <a href="news.html" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200">Tin tức</a>
         </div>
-        <div class="group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all">
-          <a href="#" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200">Liên hệ</a>
+        <div class="nav-item group h-[90px] flex items-center border-t-4 border-transparent hover:border-cyan-400 transition-all" data-page="contact.html">
+          <a href="contact.html" class="text-[15px] font-bold text-gray-600 hover:text-cyan-400 transition-colors duration-200">Liên hệ</a>
         </div>
       </nav>
 
       <!-- Search and Cart -->
       <div class="flex items-center space-x-0 text-sm">
-        <!-- Search -->
-        <!-- Search -->
-        <div class="relative group">
+        <!-- Search - hidden on mobile -->
+        <div class="relative group hidden md:block">
           <button class="bg-white p-2">
             <i class="fas fa-search text-sm text-gray-800"></i>
           </button>
@@ -89,15 +94,113 @@
           </div>
         </div>
 
+        <!-- Divider - hidden on mobile -->
+        <div class="text-gray-400 mx-4 hidden md:block">|</div>
 
-        <!-- Divider -->
-        <div class="text-gray-400 mx-4">|</div>
-
-        <!-- Cart -->
-        <button class="bg-white p-2 flex items-center focus:outline-none">
+        <!-- Cart - always visible -->
+        <button class="bg-white p-2 flex items-center focus:outline-none cart-button-mobile">
           <i class="fas fa-shopping-basket mr-2 text-xl text-gray-800"></i>
           <span class="font-bold text-gray-800 hover:text-cyan-400 transition-colors duration-200">Giỏ hàng (0)</span>
         </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu Panel - shown when hamburger is clicked -->
+    <div id="mobile-menu-panel" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden opacity-0 transition-opacity duration-300">
+      <div class="bg-white h-full w-3/4 max-w-xs overflow-y-auto shadow-xl transform transition-transform duration-300">
+        <!-- Close button -->
+        <div class="flex justify-end p-4 border-b border-gray-200">
+          <button id="mobile-menu-close" class="text-gray-500 hover:text-gray-800">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <!-- Search Bar -->
+        <div class="p-4 border-b border-gray-200">
+          <div class="relative">
+            <input type="text" placeholder="Tìm kiếm..." class="w-full px-4 py-2 border border-gray-300 rounded-md text-sm">
+            <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
+              <i class="fas fa-search text-gray-400"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Login/Register -->
+        <div class="px-4 py-3 border-b border-gray-200">
+          <div class="flex gap-4">
+            <a href="/login" class="text-gray-600  hover:underline">
+              Đăng nhập
+            </a>
+            <a href="/register" class="text-gray-600 hover:underline">
+              Đăng ký
+            </a>
+          </div>
+
+        </div>
+        
+        <!-- Mobile Navigation Menu with cyan dots -->
+        <nav class="py-1" id="mobile-nav">
+          <!-- Navigation items with cyan dots -->
+          <div class="mobile-nav-item flex items-center px-4 py-3 border-b border-gray-200" data-page="index.html">
+            <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
+            <a href="index.html" class="text-[15px] text-gray-800">Trang chủ</a>
+          </div>
+          
+          <div class="mobile-nav-item flex items-center px-4 py-3 border-b border-gray-200" data-page="gioi-thieu.html">
+            <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
+            <a href="gioi-thieu.html" class="text-[15px] text-gray-800">Giới thiệu</a>
+          </div>
+          
+          <!-- Đặt lịch hẹn with dropdown -->
+          <div class="mobile-nav-item border-b border-gray-200" data-page="appointment.html">
+            <div class="flex items-center justify-between px-4 py-3">
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
+                <a href="appointment.html" class="text-[15px] text-gray-800">Đặt lịch hẹn</a>
+              </div>
+              <span class="text-lg text-gray-400 font-bold mobile-dropdown-toggle">+</span>
+            </div>
+            <div class="mobile-submenu bg-gray-50 pl-9 py-2 hidden">
+              <a href="personal-appointment.html" class="block px-4 py-2 text-[14px] text-gray-600 border-b border-gray-100">Lịch hẹn cá nhân</a>
+              <a href="group-appointment.html" class="block px-4 py-2 text-[14px] text-gray-600 border-b border-gray-100">Lịch hẹn nhóm</a>
+              <a href="online-consultation.html" class="block px-4 py-2 text-[14px] text-gray-600">Tư vấn trực tuyến</a>
+            </div>
+          </div>
+          
+          <!-- Sản phẩm with dropdown -->
+          <div class="mobile-nav-item border-b border-gray-200" data-page="products.html">
+            <div class="flex items-center justify-between px-4 py-3">
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
+                <a href="products.html" class="text-[15px] text-gray-800">Sản phẩm</a>
+              </div>
+              <span class="text-lg text-gray-400 font-bold mobile-dropdown-toggle">+</span>
+            </div>
+            <div class="mobile-submenu bg-gray-50 pl-9 py-2 hidden">
+              <a href="product-1.html" class="block px-4 py-2 text-[14px] text-gray-600 border-b border-gray-100">Sản phẩm 1</a>
+              <a href="product-2.html" class="block px-4 py-2 text-[14px] text-gray-600 border-b border-gray-100">Sản phẩm 2</a>
+              <a href="product-3.html" class="block px-4 py-2 text-[14px] text-gray-600">Sản phẩm 3</a>
+            </div>
+          </div>
+          
+          <div class="mobile-nav-item flex items-center px-4 py-3 border-b border-gray-200" data-page="news.html">
+            <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
+            <a href="news.html" class="text-[15px] text-gray-800">Tin tức</a>
+          </div>
+          
+          <div class="mobile-nav-item flex items-center px-4 py-3 border-b border-gray-200" data-page="contact.html">
+            <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
+            <a href="contact.html" class="text-[15px] text-gray-800">Liên hệ</a>
+          </div>
+        </nav>
+        
+        <!-- Social Media Icons -->
+        <div class="flex items-center space-x-4 px-4 py-4 mt-4">
+          <a href="#" class="text-cyan-400 hover:text-cyan-600"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-cyan-400 hover:text-cyan-600"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-cyan-400 hover:text-cyan-600"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="text-cyan-400 hover:text-cyan-600"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="text-cyan-400 hover:text-cyan-600"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
     </div>
   </header>

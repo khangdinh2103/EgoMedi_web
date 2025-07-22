@@ -74,11 +74,15 @@ class ProductGrid {
             <div class="bg-white rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300 group cursor-pointer product-item" 
                  data-product-id="${product.id}">
                 <div class="p-4">
-                    <div class="h-40 flex items-center justify-center mb-3 bg-white">
+                    <div class="h-60 flex items-center justify-center mb-3 bg-white relative overflow-hidden">
                         <img src="${product.image}" 
                              alt="${product.name}" 
-                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                             class="w-[235x] h-[240px] object-contain group-hover:scale-110 transition-transform duration-300 relative z-10"
                              loading="lazy">
+                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-20"></div>
+                        <button class="cart-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 hover:bg-cyan-500 group/cart">
+                            <i class="fas fa-shopping-basket text-gray-700 group-hover/cart:text-white transition-colors duration-300"></i>
+                        </button>
                     </div>
                     <h3 class="text-gray-700 font-medium mb-3 font-montserrat text-center text-sm leading-tight">${product.name}</h3>
                     <div class="text-center">
@@ -281,7 +285,7 @@ const medicalProducts = [
         id: 'may-xong-mui-hong',
         name: 'Máy xông mũi họng',
         price: 1130000,
-        image: '//bizweb.dktcdn.net/100/382/483/themes/758809/assets/product_1.jpg?1705909553460',
+        image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/may-xong-mui-hong-beurer-ih26-duc-5d37bdc406a19-24072019090908-ced00d13-cf7f-4b2c-b1ad-1081447c94ea.jpg?v=1585558027640',
         category: 'medical-device',
         rating: 4.5
     },
@@ -290,7 +294,7 @@ const medicalProducts = [
         name: 'Khẩu trang vải xuất khẩu',
         price: 100000,
         originalPrice: 120000,
-        image: '//bizweb.dktcdn.net/100/382/483/themes/758809/assets/product_2.jpg?1705909553460',
+        image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/khau-trang-vai-khang-khuan-nagakawa-t4-b5e0c130-a26e-43d4-8c9e-cf0243b9442c.jpg?v=1585557895613',
         category: 'protection',
         badge: 'Sale',
         rating: 4.2
@@ -300,16 +304,16 @@ const medicalProducts = [
         name: 'Máy đo huyết áp cổ tay Đức',
         price: 800000,
         originalPrice: 900000,
-        image: '//bizweb.dktcdn.net/100/382/483/themes/758809/assets/product_3.jpg?1705909553460',
+        image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-huyet-ap-co-tay-beurer-bc30-6b297beb-3565-4c5e-bfbe-1c34b167f35d.jpg?v=1585510030550',
         category: 'medical-device',
         rating: 4.8
     },
     {
-        id: 'nuoc-rua-tay',
-        name: 'Nước rửa tay khô sát khuẩn',
-        price: 39000,
+        id: 'con-rua-tay',
+        name: 'Cồn rửa tay',
+        price: 999000,
         originalPrice: 150000,
-        image: '//bizweb.dktcdn.net/100/382/483/themes/758809/assets/product_4.jpg?1705909553460',
+        image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/nuoc-rua-tay-kho-sat-khuan-dr-kovik-500ml-1-d1ebe3e0-246c-4961-ac3b-d72c82f8dfe0-364f065d-a3d1-4d79-992d-26f24cdc48e6.jpg?v=1585557952817',
         category: 'hygiene',
         badge: 'Hot',
         rating: 4.0
@@ -318,33 +322,33 @@ const medicalProducts = [
         id: 'nhiet-ke-dien-tu',
         name: 'Nhiệt kế điện tử',
         price: 350000,
-        image: '//bizweb.dktcdn.net/100/382/483/themes/758809/assets/product_5.jpg?1705909553460',
+        image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/ne-c801kd-1.jpg?v=1585510284053',
         category: 'medical-device',
         rating: 4.3
     },
     {
-        id: 'gang-tay-y-te',
-        name: 'Găng tay y tế',
-        price: 25000,
-        originalPrice: 35000,
-        image: '//bizweb.dktcdn.net/100/382/483/themes/758809/assets/product_6.jpg?1705909553460',
+        id: 'may-xong-mui-hong',
+        name: 'Máy xông mũi họng',
+        price: 1130000,
+        image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/ne-c801kd-1.jpg?v=1585510284053',
         category: 'protection',
         rating: 4.1
     },
     {
         id: 'may-do-duong-huyet',
-        name: 'Máy đo đường huyết',
-        price: 650000,
-        image: '//bizweb.dktcdn.net/100/382/483/themes/758809/assets/product_7.jpg?1705909553460',
+        name: 'Máy đo huyết áp cổ tay',
+        price: 6000000,
+        originalPrice: 700000,
+        image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/4975479417108.jpg?v=1585510012327',
         category: 'medical-device',
         rating: 4.6
     },
     {
-        id: 'tui-churom',
-        name: 'Túi chườm nóng lạnh',
-        price: 85000,
-        originalPrice: 120000,
-        image: '//bizweb.dktcdn.net/100/382/483/themes/758809/assets/product_8.jpg?1705909553460',
+        id: 'nuoc-rua-tay-kho',
+        name: 'Nước rửa tay khô',
+        price: 9999000,
+        originalPrice: 150000,
+        image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/nuoc-rua-tay-kho-sat-khuan-dr-kovik-500ml-1.jpg?v=1585509678107',
         category: 'therapy',
         rating: 4.4
     }

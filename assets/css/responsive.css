@@ -84,3 +84,42 @@
     padding: 20px;
   }
 }
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+  /* Mobile menu container */
+  #mobile-menu-panel {
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Mobile menu inner panel */
+  #mobile-menu-panel > div {
+    transition: transform 0.3s ease;
+  }
+  
+  /* Mobile dropdown transitions */
+  #mobile-menu-panel .border-b > div.bg-gray-50 {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  #mobile-menu-panel .border-b > div.bg-gray-50:not(.hidden) {
+    max-height: 500px;
+  }
+  
+  /* Cart button on mobile */
+  .cart-button-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  /* Logo centering on mobile */
+  @media (max-width: 768px) {
+    .logo-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EgoMedi - Giới thiệu</title>
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Breadcrumb Banner JS -->
+    <script src="./assets/js/breadcrumb-banner.js"></script>
+</head>
+<body class="bg-gray-50 font-montserrat relative" style="background-image: url('https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg-bottom-right.png?1705909553460'); background-repeat: no-repeat; background-position: bottom right; background-attachment: fixed; background-size: auto;">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Breadcrumb Banner -->
+    <div id="page-header"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Your introduction content goes here -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Left Column - Image -->
+                    <div>
+                        <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/about-img.jpg?1705909553460" 
+                             alt="Giới thiệu EgoMedi" 
+                             class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                    
+                    <!-- Right Column - Content -->
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6 font-montserrat">Về chúng tôi</h2>
+                        
+                        <div class="prose prose-lg text-gray-600 space-y-4">
+                            <p>
+                                Ru đời với sứ mệnh cung cấp những dịch vụ y tế cao cấp, phòng khám Đa khoa Y học Ego Medical Center mang tới cho người dân Hà Nội và các tỉnh lân cận một địa chỉ chăm sóc sức khỏe chuyên nghiệp và an toàn.
+                            </p>
+                            <p>
+                                Tại đây, bên cạnh việc được chăm sóc sức khỏe sinh sản toàn diện, được tôn trọng và thấu hiểu, người bệnh còn được trải nghiệm những tiện ích hoàn hảo của hệ thống dịch vụ y tế chất lượng quốc tế, được lựa chọn chế độ thăm khám, phòng nghỉ dưỡng công nghệ cao và chăm sóc theo yêu cầu với chi phí hợp lý, thông tin bảo mật tuyệt đối.
+                            </p>
+                            <p>
+                                Với mong muốn chăm sóc sức khỏe sinh sản cho cộng đồng người Việt, đáp ứng đầy đủ các tiêu chí: phòng khám trực thuộc Sở Y tế, bác sĩ chuyên khoa đầu tư, trang thiết bị y tế phương châm "đầu tư đắt, không bao giờ sai", phòng khám quốc tế, phục vụ khách hàng với những dịch vụ y tế chuyên nghiệp, hoàn hảo nhất, phòng khám hứa hẹn sẽ trở thành địa chỉ tin cậy nơi khách hàng an tâm sử dụng các dịch vụ chăm sóc sức khỏe đa dạng, chất lượng với mức chi phí hợp lý.
+                            </p>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="#" class="btn-blue-wave bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 inline-flex items-center font-montserrat">
+                                Tìm hiểu thêm
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Action Buttons (FAB) on left side -->
+    <div class="fab-container">
+        <!-- Zalo Button -->
+        <div class="fab-button zalo">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        
+        <!-- Messenger Button -->
+        <div class="fab-button messenger">
+            <i class="fab fa-facebook-messenger"></i>
+        </div>
+        
+        <!-- Phone Button -->
+        <div class="fab-button phone">
+            <i class="fas fa-phone"></i>
+        </div>
+        
+        <!-- Help/Question Button (Largest) -->
+        <div class="fab-button large help">
+            <i class="fas fa-question"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="./assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new BreadcrumbBanner('page-header', {
+                currentPage: 'Giới thiệu',
+                description: 'Ru đời với sứ mệnh cung cấp những dịch vụ y tế cao cấp, phòng khám Đa khoa Y học Ego Medical Center mang tới cho người dân Hà Nội và các tỉnh lân cận một địa chỉ chăm sóc sức khỏe chuyên nghiệp và an toàn.',
+                backgroundImage: '//bizweb.dktcdn.net/100/382/483/themes/758809/assets/breadcrumb-bg.jpg?1705909553460'
+            });
+        });
+    </script>
+</body>
+</html>
