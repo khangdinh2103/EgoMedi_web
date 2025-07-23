@@ -3,7 +3,7 @@
 /* Main FAB container */
 .fab-container {
   position: fixed;
-  bottom: 20px;
+  bottom: 40px;
   left: 2rem; /* Position on the left side of the screen */
   z-index: 999;
   display: flex;

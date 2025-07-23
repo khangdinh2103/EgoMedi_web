@@ -158,7 +158,7 @@
     position: fixed;
     z-index: 99;
     left: 20px; /* Position on left side */
-    bottom: 20px;
+    bottom: 40px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -166,8 +166,8 @@
 }
 
 .fab-button {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #00bcd4;
     color: white;
@@ -181,9 +181,41 @@
 }
 
 .fab-button.large {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
+    color: white !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 0 5px rgba(0, 188, 212, 0.2);
+    position: relative;
+}
+
+/* Expanding circles animation for large button */
+.fab-button.large::before,
+.fab-button.large::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    border: 2px solid rgba(8, 147, 165, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: expand 2s infinite;
+}
+
+.fab-button.large::after {
+    animation-delay: 1s;
+}
+
+@keyframes expand {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+    }
 }
 
 .fab-button.phone {

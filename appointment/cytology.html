@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EgoMedi - Tế bào học</title>
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Breadcrumb Banner JS -->
+    <script src="../assets/js/breadcrumb-banner.js"></script>
+    <style>
+        /* Fix for dropdown items staying black when parent is active */
+        /* Desktop dropdown menu */
+        .nav-item.active > div > a {
+            color: black !important;
+        }
+        .nav-item.active > div > a:hover {
+            color: #0891b2 !important; /* cyan-600 equivalent */
+        }
+        /* Mobile dropdown menu */
+        .mobile-nav-item.active-mobile .mobile-submenu a {
+            color: #1f2937 !important; /* gray-800 */
+        }
+        .mobile-nav-item.active-mobile .mobile-submenu a:hover {
+            color: #0891b2 !important; /* cyan-600 equivalent */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-0 font-montserrat relative" style="background-image: url('https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg-bottom-right.png?1705909553460'); background-repeat: no-repeat; background-position: bottom right; background-attachment: fixed; background-size: auto;">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Breadcrumb Banner -->
+    <div id="page-header"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Cytology content goes here -->
+        <section class="py-16 px-8 bg-white">
+            <div class="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
+                <div class="">
+                    <div>
+                        <div class="prose text-sm prose-lg text-gray-600 space-y-4 leading-6">
+                        <p><b>Xét nghiệm tế bào học</b> (Cytology hoặc Cytopathology) là xét nghiệm thông dụng và có giá trị cao. Xét nghiệm tế bào học khảo sát các tế bào rời hoặc một cụm tế bào lẫn trong chất dịch lỏng thấy được trên kính hiển vi. Có khi chỉ cần một giọt máu hoặc chất dịch như trong xét nghiệm FNA, nhưng có khi phải cần đến cả chai chất <b>dịch màng phổi </b>hoặc ổ bụng.</p>
+                        
+                        <p>Lấy một mẫu thử tế bào, ít gây mệt, ít gây biến chứng và đỡ tốn kém hơn cho người bệnh so với sinh thiết mô bệnh học.</p>
+                        
+                        <p>Trong nhiều trường hợp, sinh thiết cho kết quả chính xác hơn. Tuy nhiên, với một số trường hợp, độ chính xác gần như nhau. Vì vậy, việc lựa chọn các xét nghiệm tế bào học hay xét nghiệm <b>sinh thiết</b> sẽ tùy thuộc vào ý kiến bác sĩ sau khi cân nhắc nhiều yếu tố liên quan đến loại bệnh và cơ quan bị bệnh.</p>
+                        </div>
+
+                        <div class="mt-16">
+                            <a href="#" class="btn-blue-wave bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full text-sm transition-all duration-300 hover:-translate-y-1 inline-flex items-center font-montserrat">
+                                Đặt lịch ngay
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating Action Buttons (FAB) on left side -->
+    <div class="fab-container">
+        <!-- Zalo Button -->
+        <div class="fab-button zalo">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        
+        <!-- Messenger Button -->
+        <div class="fab-button messenger">
+            <i class="fab fa-facebook-messenger"></i>
+        </div>
+        
+        <!-- Phone Button -->
+        <div class="fab-button phone">
+            <i class="fas fa-phone"></i>
+        </div>
+        
+        <!-- Help/Question Button (Largest) -->
+        <div class="fab-button large help">
+            <i class="far fa-question-circle"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Updated path to load components from parent directory
+            loadHeader();
+            loadFooter();
+            
+            // Initialize components
+            function loadHeader() {
+                fetch('../components/header.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('header').innerHTML = html;
+                        
+                        // Initialize mobile menu after header is loaded
+                        initMobileMenuEvents();
+                        
+                        // Set active menu item based on current page
+                        setActiveMenuItem();
+                    })
+                    .catch(error => console.error('Error loading header:', error));
+            }
+            
+            function loadFooter() {
+                fetch('../components/footer.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('footer').innerHTML = html;
+                    })
+                    .catch(error => console.error('Error loading footer:', error));
+            }
+            
+            function initMobileMenuEvents() {
+                // Mobile menu functionality
+                const menuBtn = document.getElementById('mobile-menu-button');
+                const menuPanel = document.getElementById('mobile-menu-panel');
+                const closeBtn = document.getElementById('mobile-menu-close');
+                
+                if(menuBtn && menuPanel && closeBtn) {
+                    menuBtn.addEventListener('click', function() {
+                        menuPanel.classList.remove('hidden');
+                        setTimeout(() => {
+                            menuPanel.style.opacity = '1';
+                            menuPanel.querySelector('.bg-white').style.transform = 'translateX(0)';
+                        }, 10);
+                    });
+                    
+                    closeBtn.addEventListener('click', function() {
+                        menuPanel.style.opacity = '0';
+                        menuPanel.querySelector('.bg-white').style.transform = 'translateX(-100%)';
+                        setTimeout(() => {
+                            menuPanel.classList.add('hidden');
+                        }, 300);
+                    });
+                    
+                    // Initialize dropdown toggles
+                    initMobileDropdownToggles();
+                }
+            }
+            
+            function initMobileDropdownToggles() {
+                // Main menu dropdowns
+                const toggles = document.querySelectorAll('.mobile-dropdown-toggle');
+                toggles.forEach(toggle => {
+                    toggle.addEventListener('click', function() {
+                        const parentItem = this.closest('.mobile-nav-item');
+                        const submenu = parentItem.querySelector('.mobile-submenu');
+                        
+                        if (submenu) {
+                            submenu.classList.toggle('hidden');
+                            this.textContent = submenu.classList.contains('hidden') ? '+' : '-';
+                        }
+                    });
+                });
+                
+                // Nested submenu dropdowns
+                const nestedToggles = document.querySelectorAll('.mobile-nested-toggle');
+                nestedToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function() {
+                        const parentItem = this.closest('.mobile-nested-item');
+                        const submenu = parentItem.querySelector('.mobile-nested-submenu');
+                        
+                        if (submenu) {
+                            submenu.classList.toggle('hidden');
+                            this.textContent = submenu.classList.contains('hidden') ? '+' : '-';
+                        }
+                    });
+                });
+            }
+            
+            function setActiveMenuItem() {
+                // For subdirectory pages, we need to handle the path differently
+                const currentPath = window.location.pathname;
+                const isAppointmentPage = currentPath.includes('appointment/');
+                const pageFileName = currentPath.split('/').pop();
+                
+                // Handle desktop navigation
+                const navItems = document.querySelectorAll('.nav-item');
+                navItems.forEach(item => {
+                    const itemPage = item.getAttribute('data-page');
+                    
+                    // Check if this item matches the current page or category
+                    let isActive = false;
+                    
+                    if (isAppointmentPage && itemPage === 'appointment.html') {
+                        isActive = true;
+                    } else if (pageFileName === itemPage) {
+                        isActive = true;
+                    }
+                    
+                    if (isActive) {
+                        item.classList.add('border-cyan-400', 'active');
+                        item.classList.remove('border-transparent');
+                        
+                        // Only apply the active text color to the main menu link, not dropdown items
+                        const link = item.querySelector('a:first-child');
+                        if (link) {
+                            link.classList.add('text-cyan-400');
+                            link.classList.remove('text-gray-600');
+                        }
+                    } else {
+                        item.classList.remove('border-cyan-400', 'active');
+                        item.classList.add('border-transparent');
+                        
+                        const link = item.querySelector('a');
+                        if (link) {
+                            link.classList.remove('text-cyan-400');
+                            link.classList.add('text-gray-600');
+                        }
+                    }
+                });
+                
+                // Handle mobile navigation similarly
+                const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+                mobileNavItems.forEach(item => {
+                    const itemPage = item.getAttribute('data-page');
+                    
+                    let isActive = false;
+                    if (isAppointmentPage && itemPage === 'appointment.html') {
+                        isActive = true;
+                        
+                        // Expand the submenu if it's an active parent
+                        const submenu = item.querySelector('.mobile-submenu');
+                        const toggle = item.querySelector('.mobile-dropdown-toggle');
+                        if (submenu && toggle) {
+                            submenu.classList.remove('hidden');
+                            toggle.textContent = '-';
+                        }
+                    } else if (pageFileName === itemPage) {
+                        isActive = true;
+                    }
+                    
+                    if (isActive) {
+                        item.classList.add('active-mobile');
+                        
+                        // Only apply the active text color to the main menu link, not submenu items
+                        const link = item.querySelector(':scope > div > a, :scope > a');
+                        if (link) {
+                            link.classList.add('text-cyan-500');
+                            link.classList.remove('text-gray-800');
+                        }
+                        
+                        const dot = item.querySelector('.w-2, .w-3');
+                        if (dot) {
+                            dot.classList.add('bg-cyan-600', 'w-3', 'h-3');
+                            dot.classList.remove('bg-cyan-400', 'w-2', 'h-2');
+                        }
+                    } else {
+                        item.classList.remove('active-mobile');
+                        
+                        const link = item.querySelector('a');
+                        if (link) {
+                            link.classList.remove('text-cyan-500');
+                            link.classList.add('text-gray-800');
+                        }
+                        
+                        const dot = item.querySelector('.w-2, .w-3');
+                        if (dot) {
+                            dot.classList.remove('bg-cyan-600', 'w-3', 'h-3');
+                            dot.classList.add('bg-cyan-400', 'w-2', 'h-2');
+                        }
+                    }
+                });
+            }
+            
+            // Initialize breadcrumb banner
+            new BreadcrumbBanner('page-header', {
+                currentPage: 'Tế bào học',
+                parentPages: [
+                    { name: 'Trang chủ', link: '../index.html' },
+                    { name: 'Đặt lịch hẹn', link: '../appointment.html' }
+                ],
+                backgroundImage: 'https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg_bread_crumb.jpg?1705634372536'
+            });
+        });
+    </script>
+</body>
+</html>

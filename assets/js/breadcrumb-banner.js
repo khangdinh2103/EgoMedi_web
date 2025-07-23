@@ -41,10 +41,10 @@ class BreadcrumbBanner {
                 </div>
                 
                 <!-- Content -->
-                <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-white">
+                <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-white">
                     <div class="flex flex-col items-center md:items-start">
                         <!-- Title -->
-                        <h1 class="text-4xl font-bold mb-4 text-center md:text-left font-montserrat">
+                        <h1 class="text-3xl font-bold mb-4 text-center md:text-left font-montserrat">
                             ${this.options.currentPage}
                         </h1>
                         
