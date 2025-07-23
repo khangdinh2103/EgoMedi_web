@@ -18,11 +18,8 @@ class BreadcrumbBanner {
         // Default options
         this.options = {
             currentPage: options.currentPage || 'Trang hiện tại',
-            description: options.description || '',
             backgroundImage: options.backgroundImage || '//bizweb.dktcdn.net/100/382/483/themes/758809/assets/breadcrumb-bg.jpg?1705909553460',
-            showButton: options.showButton !== undefined ? options.showButton : true,
-            buttonText: options.buttonText || 'Đặt lịch ngay',
-            buttonLink: options.buttonLink || '#',
+            
             ...options
         };
 
@@ -34,13 +31,13 @@ class BreadcrumbBanner {
      */
     render() {
         const html = `
-            <div class="relative w-full bg-blue-900 overflow-hidden">
+            <div class="relative w-full px-8 bg-blue-900 overflow-hidden">
                 <!-- Background Image with Overlay -->
                 <div class="absolute inset-0 z-0">
                     <img src="${this.options.backgroundImage}" 
                          alt="${this.options.currentPage}" 
                          class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-blue-900 bg-opacity-70"></div>
+                    <div class="absolute inset-0 bg-opacity-70"></div>
                 </div>
                 
                 <!-- Content -->
@@ -62,21 +59,7 @@ class BreadcrumbBanner {
                             <span class="text-cyan-300">${this.options.currentPage}</span>
                         </div>
                         
-                        <!-- Description Text -->
-                        ${this.options.description ? `
-                        <div class="text-gray-200 max-w-2xl text-center md:text-left mb-8 font-montserrat">
-                            ${this.options.description}
-                        </div>
-                        ` : ''}
-                        
-                        <!-- CTA Button -->
-                        ${this.options.showButton ? `
-                        <a href="${this.options.buttonLink}" 
-                           class="btn-blue-wave bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 inline-flex items-center font-montserrat">
-                            ${this.options.buttonText}
-                            <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                        ` : ''}
+                       
                     </div>
                 </div>
             </div>

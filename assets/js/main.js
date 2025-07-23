@@ -398,11 +398,26 @@ function toggleSubmenu(submenuId) {
 
 // Initialize mobile dropdown toggles
 function initMobileDropdownToggles() {
+    // Main menu dropdowns
     const toggles = document.querySelectorAll('.mobile-dropdown-toggle');
     toggles.forEach(toggle => {
         toggle.addEventListener('click', function() {
             const parentItem = this.closest('.mobile-nav-item');
             const submenu = parentItem.querySelector('.mobile-submenu');
+            
+            if (submenu) {
+                submenu.classList.toggle('hidden');
+                this.textContent = submenu.classList.contains('hidden') ? '+' : '-';
+            }
+        });
+    });
+    
+    // Nested submenu dropdowns
+    const nestedToggles = document.querySelectorAll('.mobile-nested-toggle');
+    nestedToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const parentItem = this.closest('.mobile-nested-item');
+            const submenu = parentItem.querySelector('.mobile-nested-submenu');
             
             if (submenu) {
                 submenu.classList.toggle('hidden');

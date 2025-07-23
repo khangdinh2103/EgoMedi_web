@@ -75,9 +75,28 @@
     background-color: rgba(0, 188, 212, 0.05);
 }
 
-.mobile-nav-item.active-mobile a {
+.mobile-nav-item.active-mobile > div > div > a,
+.mobile-nav-item.active-mobile > a {
     color: #00bcd4 !important;
     font-weight: bold;
+}
+
+/* Nested mobile menu styles */
+.mobile-nested-item {
+    position: relative;
+}
+
+.mobile-nested-submenu {
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-nested-toggle {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mobile-nested-toggle.active {
+    transform: rotate(45deg);
 }
 
 /* Dropdown animation */
@@ -88,6 +107,20 @@
 
 .dropdown.show {
     transform: translateY(0);
+}
+
+/* Nested desktop dropdown */
+.group\/nested:hover .invisible {
+    visibility: visible !important;
+}
+
+/* Hover effect for nested dropdown link */
+.group\/nested {
+    position: relative;
+}
+
+.group\/nested:hover > a {
+    color: #00bcd4 !important;
 }
 
 /* Hero gradient animation */
