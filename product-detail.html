@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EgoMedi - Chi tiết sản phẩm</title>
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/product-detail.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Breadcrumb Banner JS -->
+    <script src="./assets/js/breadcrumb-banner.js"></script>
+</head>
+<body class="bg-gray-50 p-0 font-montserrat relative" style="background-image: url('https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg-bottom-right.png?1705909553460'); background-repeat: no-repeat; background-position: bottom right; background-attachment: fixed; background-size: auto;">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Breadcrumb Banner -->
+    <div id="page-header"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Product Detail Section -->
+        <section class="py-10 px-4 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Product Images -->
+                    <div class="product-images">
+                        <!-- Main Image -->
+                        <div class="main-image mb-4 border border-gray-200 rounded-lg p-4 flex items-center justify-center h-[400px]">
+                            <img id="main-product-image" src="" alt="Product Image" class="max-h-full object-contain">
+                        </div>
+                        <!-- Thumbnail Images -->
+                        <div class="thumbnails flex space-x-2 overflow-x-auto py-2">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-info">
+                        <h1 id="product-name" class="text-2xl md:text-3xl font-bold text-gray-800 mb-2"></h1>
+                        
+                        <!-- Product Price -->
+                        <div class="flex items-center mt-4 mb-6">
+                            <span id="product-price" class="text-2xl font-bold text-gray-900"></span>
+                            <span id="product-original-price" class="text-lg text-gray-500 line-through ml-3"></span>
+                        </div>
+
+                        <!-- Product Rating -->
+                        <div id="product-rating" class="flex items-center mb-6">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+
+                        <!-- Product Description -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium mb-2">Mô tả sản phẩm</h3>
+                            <div id="product-description" class="text-gray-600 space-y-2">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Product Quantity -->
+                        <div class="flex items-center mb-6">
+                            <span class="mr-4">Số lượng:</span>
+                            <div class="flex border border-gray-300 rounded-md">
+                                <button id="decrease-qty" class="px-3 py-1 border-r border-gray-300 hover:bg-gray-100">-</button>
+                                <input id="product-quantity" type="number" value="1" min="1" class="w-12 text-center focus:outline-none">
+                                <button id="increase-qty" class="px-3 py-1 border-l border-gray-300 hover:bg-gray-100">+</button>
+                            </div>
+                        </div>
+
+                        <!-- Call to Action Buttons -->
+                        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                            <button id="add-to-cart" class="flex-1 bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full text-sm transition-all duration-300 flex items-center justify-center">
+                                <i class="fas fa-shopping-cart mr-2"></i>
+                                Thêm vào giỏ hàng
+                            </button>
+                            <button id="buy-now" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-sm transition-all duration-300 flex items-center justify-center">
+                                <i class="fas fa-bolt mr-2"></i>
+                                Mua ngay
+                            </button>
+                        </div>
+                        
+                        <!-- Additional Info -->
+                        <div class="mt-8 border-t border-gray-200 pt-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- Shipping Info -->
+                                <div class="flex items-center">
+                                    <i class="fas fa-truck text-cyan-500 mr-3 text-xl"></i>
+                                    <div>
+                                        <h4 class="font-medium">Giao hàng miễn phí</h4>
+                                        <p class="text-sm text-gray-600">Cho đơn hàng trên 500.000₫</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Return Policy -->
+                                <div class="flex items-center">
+                                    <i class="fas fa-undo text-cyan-500 mr-3 text-xl"></i>
+                                    <div>
+                                        <h4 class="font-medium">Đổi trả dễ dàng</h4>
+                                        <p class="text-sm text-gray-600">Trong vòng 30 ngày</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Details Tabs -->
+                <div class="mt-12">
+                    <div class="border-b border-gray-200">
+                        <ul class="flex flex-wrap -mb-px">
+                            <li class="mr-2">
+                                <a class="tab-link inline-block p-4 border-b-2 border-cyan-500 rounded-t-lg active text-cyan-500" data-tab="details">
+                                    Thông tin chi tiết
+                                </a>
+                            </li>
+                            <li class="mr-2">
+                                <a class="tab-link inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" data-tab="specs">
+                                    Thông số kỹ thuật
+                                </a>
+                            </li>
+                            <li>
+                                <a class="tab-link inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" data-tab="reviews">
+                                    Đánh giá sản phẩm
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Tab Contents -->
+                    <div class="py-6">
+                        <!-- Details Tab -->
+                        <div id="tab-details" class="tab-content">
+                            <div class="prose max-w-none text-gray-600">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <!-- Specifications Tab -->
+                        <div id="tab-specs" class="tab-content hidden">
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <tbody class="divide-y divide-gray-200">
+                                        <!-- Will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Reviews Tab -->
+                        <div id="tab-reviews" class="tab-content hidden">
+                            <div id="product-reviews">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <div class="mt-16">
+                    <h2 class="text-2xl font-bold mb-6">Sản phẩm liên quan</h2>
+                    <div id="related-products-container"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Action Buttons (FAB) on left side -->
+    <div class="fab-container">
+        <!-- Zalo Button -->
+        <div class="fab-button zalo">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        
+        <!-- Messenger Button -->
+        <div class="fab-button messenger">
+            <i class="fab fa-facebook-messenger"></i>
+        </div>
+        
+        <!-- Phone Button -->
+        <div class="fab-button phone">
+            <i class="fas fa-phone"></i>
+        </div>
+        
+        <!-- Help/Question Button (Largest) -->
+        <div class="fab-button large help">
+            <i class="far fa-question-circle"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/product-grid.js"></script>
+    <script src="./assets/js/product-detail.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new BreadcrumbBanner('page-header', {
+                currentPage: 'Chi tiết sản phẩm',
+                backgroundImage: 'https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg_bread_crumb.jpg?1705634372536'
+            });
+            
+            // Fix navigation highlighting for product detail page
+            fixProductDetailNavigation();
+            
+            // Initialize the product detail page
+            initProductDetail();
+            
+            // Custom function to fix navigation on product detail page
+            function fixProductDetailNavigation() {
+                // Ensure dropdown links in product menu remain black until hovered
+                const productLinks = document.querySelectorAll('.nav-item[data-page="products.html"] .absolute a');
+                productLinks.forEach(link => {
+                    link.classList.remove('text-cyan-400', 'text-cyan-600');
+                    link.classList.add('text-black');
+                });
+                
+                // Reset product navigation item border and text color
+                const productNavItem = document.querySelector('.nav-item[data-page="products.html"]');
+                if (productNavItem) {
+                    productNavItem.classList.remove('border-cyan-400', 'active');
+                    productNavItem.classList.add('border-transparent');
+                    
+                    const mainLink = productNavItem.querySelector('> a');
+                    if (mainLink) {
+                        mainLink.classList.remove('text-cyan-400');
+                        mainLink.classList.add('text-gray-600');
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

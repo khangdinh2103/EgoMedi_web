@@ -73,23 +73,25 @@ class ProductGrid {
         return `
             <div class="bg-white rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300 group cursor-pointer product-item" 
                  data-product-id="${product.id}">
-                <div class="p-4">
-                    <div class="h-60 flex items-center justify-center mb-3 bg-white relative overflow-hidden">
-                        <img src="${product.image}" 
-                             alt="${product.name}" 
-                             class="w-[235x] h-[240px] object-contain group-hover:scale-110 transition-transform duration-300 relative z-10"
-                             loading="lazy">
-                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-20"></div>
-                        <button class="cart-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 hover:bg-cyan-500 group/cart">
-                            <i class="fas fa-shopping-basket text-gray-700 group-hover/cart:text-white transition-colors duration-300"></i>
-                        </button>
+                <a href="product-detail.html?id=${product.id}" class="block">
+                    <div class="p-4">
+                        <div class="h-60 flex items-center justify-center mb-3 bg-white relative overflow-hidden">
+                            <img src="${product.image}" 
+                                alt="${product.name}" 
+                                class="w-[235x] h-[240px] object-contain group-hover:scale-110 transition-transform duration-300 relative z-10"
+                                loading="lazy">
+                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-20"></div>
+                            <button class="cart-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 hover:bg-cyan-500 group/cart">
+                                <i class="fas fa-shopping-basket text-gray-700 group-hover/cart:text-white transition-colors duration-300"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-gray-700 font-medium mb-3 font-montserrat text-center text-sm leading-tight">${product.name}</h3>
+                        <div class="text-center">
+                            <span class="text-gray-800 font-bold text-base font-montserrat">${this.formatPrice(product.price)}</span>
+                            ${discountHTML}
+                        </div>
                     </div>
-                    <h3 class="text-gray-700 font-medium mb-3 font-montserrat text-center text-sm leading-tight">${product.name}</h3>
-                    <div class="text-center">
-                        <span class="text-gray-800 font-bold text-base font-montserrat">${this.formatPrice(product.price)}</span>
-                        ${discountHTML}
-                    </div>
-                </div>
+                </a>
             </div>
         `;
     }
@@ -188,10 +190,26 @@ class ProductGrid {
      * Thiết lập event listeners
      */
     setupEventListeners() {
-        // Product click event
+        // Product click event for cart button
         this.container.addEventListener('click', (e) => {
+            // If clicking on cart button, stop navigation and add to cart instead
+            if (e.target.closest('.cart-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const productItem = e.target.closest('.product-item');
+                if (productItem) {
+                    const productId = productItem.dataset.productId;
+                    const product = this.products.find(p => p.id === productId);
+                    // Add to cart functionality
+                    alert(`Đã thêm ${product.name} vào giỏ hàng!`);
+                }
+                return;
+            }
+            
+            // Handle regular product click (if not handled by the anchor tag)
             const productItem = e.target.closest('.product-item');
-            if (productItem) {
+            if (productItem && !e.target.closest('a')) {
                 const productId = productItem.dataset.productId;
                 this.onProductClick(productId);
             }
@@ -231,7 +249,8 @@ class ProductGrid {
         if (this.options.onProductClick) {
             this.options.onProductClick(product);
         } else {
-            console.log('Product clicked:', product);
+            // Navigate to product detail page by default
+            window.location.href = `product-detail.html?id=${productId}`;
         }
     }
 

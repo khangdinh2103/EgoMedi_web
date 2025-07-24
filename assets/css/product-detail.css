@@ -1,0 +1,99 @@
+/* Product Detail Styles */
+
+/* Product Images */
+.product-images .thumbnails::-webkit-scrollbar {
+    height: 4px;
+}
+
+.product-images .thumbnails::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.product-images .thumbnails::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.product-images .thumbnails::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Tabs */
+.tab-link.active {
+    font-weight: 500;
+}
+
+/* Rating stars */
+.rating-select i:hover ~ i {
+    color: #9ca3af !important; /* text-gray-400 */
+}
+
+/* Product zoom effect on hover */
+.main-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.main-image img {
+    transition: transform 0.3s ease;
+}
+
+.main-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Quantity input */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Animation for add to cart */
+@keyframes addToCartPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.add-to-cart-animation {
+    animation: addToCartPulse 0.5s ease-in-out;
+}
+
+/* Media queries */
+@media (max-width: 640px) {
+    .product-images .main-image {
+        height: 300px;
+    }
+    
+    .thumbnails .thumbnail-item img {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+/* Tablet and above */
+@media (min-width: 768px) {
+    .product-info {
+        padding-left: 2rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .dark-mode .product-info h1 {
+        color: #f3f4f6;
+    }
+    
+    .dark-mode .product-price {
+        color: #f3f4f6;
+    }
+    
+    .dark-mode .product-description {
+        color: #d1d5db;
+    }
+}

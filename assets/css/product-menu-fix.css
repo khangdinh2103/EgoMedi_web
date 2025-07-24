@@ -1,0 +1,30 @@
+/* Fix for product dropdown menu on products.html page */
+
+/* Ensure dropdown links are black by default */
+.nav-item[data-page="products.html"].active .absolute a {
+  color: black !important;
+  transition: color 0.2s;
+}
+
+/* Only turn cyan on hover */
+.nav-item[data-page="products.html"].active .absolute a:hover {
+  color: #0891b2 !important; /* cyan-600 */
+}
+
+/* Make sure nested dropdown items follow the same rule */
+.nav-item[data-page="products.html"].active .group\/nested a {
+  color: black !important;
+}
+
+.nav-item[data-page="products.html"].active .group\/nested a:hover {
+  color: #0891b2 !important;
+}
+
+/* Fix for mobile menu dropdown items */
+.mobile-nav-item[data-page="products.html"].active-mobile .mobile-submenu a {
+  color: #4b5563 !important; /* text-gray-600 */
+}
+
+.mobile-nav-item[data-page="products.html"].active-mobile .mobile-submenu a:hover {
+  color: #0891b2 !important;
+}

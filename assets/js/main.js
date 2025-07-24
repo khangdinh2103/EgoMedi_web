@@ -95,6 +95,10 @@ function setActiveMenuItem() {
     // Get current page filename
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
+    // Check if we are on product-detail page or products page
+    const isProductDetail = currentPage === 'product-detail.html';
+    const isProductsPage = currentPage === 'products.html';
+    
     // Handle desktop navigation
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
@@ -104,7 +108,7 @@ function setActiveMenuItem() {
         // Check if this item matches the current page or its subpages
         if (
             currentPage === itemPage || 
-            (currentPage.includes('product-') && itemPage === 'products.html') ||
+            (!isProductDetail && currentPage.includes('product-') && itemPage === 'products.html') ||
             (currentPage.includes('appointment') && itemPage === 'appointment.html')
         ) {
             // Set active styles
@@ -114,6 +118,15 @@ function setActiveMenuItem() {
             if (link) {
                 link.classList.remove('text-gray-600');
                 link.classList.add('text-cyan-400');
+            }
+            
+            // For products page, ensure dropdown items are black by default
+            if (isProductsPage && itemPage === 'products.html') {
+                const dropdownLinks = item.querySelectorAll('.absolute a');
+                dropdownLinks.forEach(dropLink => {
+                    dropLink.classList.remove('text-cyan-400', 'text-cyan-600');
+                    dropLink.classList.add('text-black');
+                });
             }
         } else {
             // Reset styles
@@ -136,7 +149,7 @@ function setActiveMenuItem() {
         // Check if this item matches the current page or its subpages
         if (
             currentPage === itemPage || 
-            (currentPage.includes('product-') && itemPage === 'products.html') ||
+            (!isProductDetail && currentPage.includes('product-') && itemPage === 'products.html') ||
             (currentPage.includes('appointment') && itemPage === 'appointment.html')
         ) {
             // Set active styles for mobile
