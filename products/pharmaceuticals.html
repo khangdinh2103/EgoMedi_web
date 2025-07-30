@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EgoMedi - Tất cả sản phẩm</title>
+    <title>EgoMedi - Dược phẩm</title>
     <!-- Google Fonts - Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -48,14 +48,26 @@
                                 <h3 class="text-lg font-semibold text-gray-800 mb-4 border-b border-cyan-500 pb-2">
                                     DANH MỤC ĐIỀU TRỊ
                                 </h3>
-                                 <ul class="space-y-2" id="category-menu">
+                                <ul class="space-y-2" id="category-menu">
                                     <li><a href="../index.html" class="text-gray-600 hover:text-cyan-500 block py-1">Trang chủ</a></li>
                                     <li><a href="../gioi-thieu.html" class="text-gray-600 hover:text-cyan-500 block py-1">Giới thiệu</a></li>
                                     <li><a href="../appointment.html" class="text-gray-600 hover:text-cyan-500 block py-1">Đặt lịch hẹn</a></li>
-                                    <li><a href="../products/products.html" class="text-gray-600 hover:text-cyan-500 block py-1">Tất cả sản phẩm</a></li>
-                                    <li><a href="../products/popular-products.html" class="text-cyan-500 font-medium block py-1">Sản phẩm nổi bật</a></li>
-                                    <li><a href="../news/news.html" class="text-gray-600 hover:text-cyan-500 block py-1">Tin tức</a></li>
-                                    <li><a href="../contact.html" class="text-gray-600 hover:text-cyan-500 block py-1">Liên hệ</a></li>
+                                    <li><a href="products.html" class="text-gray-600 hover:text-cyan-500 block py-1">Tất cả sản phẩm</a></li>
+                                    <li><a href="medical-products.html" class="text-gray-600 hover:text-cyan-500 block py-1">Sản phẩm y tế</a></li>
+                                    <li><a href="pharmaceuticals.html" class="text-cyan-500 font-medium block py-1">Dược phẩm</a></li>
+                                    <li><a href="medical-accessories.html" class="text-gray-600 hover:text-cyan-500 block py-1">Phụ kiện y tế</a></li>
+                                    <li><a href="popular-products.html" class="text-gray-600 hover:text-cyan-500 block py-1">Sản phẩm nổi bật</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Pharmaceutical Categories -->
+                            <div class="mb-8">
+                                <h3 class="text-lg font-semibold text-gray-800 mb-4">LOẠI DƯỢC PHẨM</h3>
+                                <ul class="space-y-2" id="pharma-categories">
+                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="hygiene"> Sản phẩm vệ sinh</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="antiseptic"> Thuốc sát trùng</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="supplement"> Thực phẩm bổ sung</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="medicine"> Thuốc</label></li>
                                 </ul>
                             </div>
 
@@ -63,23 +75,11 @@
                             <div class="mb-8">
                                 <h3 class="text-lg font-semibold text-gray-800 mb-4">THƯƠNG HIỆU</h3>
                                 <ul class="space-y-2" id="brand-filter">
-                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="omron"> Omron</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="dr-kovik"> Dr Kovik</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="nagakawa"> Nagakawa</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="bliss"> Bliss</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="beurer"> Beurer</label></li>
                                     <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="fa"> FA</label></li>
-                                </ul>
-                            </div>
-
-                            <!-- Product Type Filter -->
-                            <div class="mb-8">
-                                <h3 class="text-lg font-semibold text-gray-800 mb-4">LOẠI SẢN PHẨM</h3>
-                                <ul class="space-y-2" id="type-filter">
-                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="medical-device"> Thiết bị y tế</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="hygiene"> Nước rửa tay</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="thermometer"> Nhiệt kế</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="protection"> Khẩu trang</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="pharmasept"> Pharmasept</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="aqua"> Aqua</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="medisafe"> Medisafe</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2" value="clean"> Clean</label></li>
                                 </ul>
                             </div>
 
@@ -87,13 +87,11 @@
                             <div class="mb-8">
                                 <h3 class="text-lg font-semibold text-gray-800 mb-4">GIÁ SẢN PHẨM</h3>
                                 <ul class="space-y-2" id="price-filter">
-                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="0-1000000"> Giá dưới 1.000.000₫</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="1000000-2000000"> 1.000.000₫ - 2.000.000₫</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="2000000-3000000"> 2.000.000₫ - 3.000.000₫</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="3000000-5000000"> 3.000.000₫ - 5.000.000₫</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="5000000-10000000"> 5.000.000₫ - 10.000.000₫</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="10000000-20000000"> 10.000.000₫ - 20.000.000₫</label></li>
-                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="20000000-50000000"> 20.000.000₫ - 50.000.000₫</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="0-50000"> Giá dưới 50.000₫</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="50000-100000"> 50.000₫ - 100.000₫</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="100000-200000"> 100.000₫ - 200.000₫</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="200000-500000"> 200.000₫ - 500.000₫</label></li>
+                                    <li><label class="flex items-center cursor-pointer"><input type="radio" name="price" class="mr-2" value="500000-1000000"> 500.000₫ - 1.000.000₫</label></li>
                                 </ul>
                                 
                                 <!-- Clear price filter button -->
@@ -114,7 +112,7 @@
                         <!-- Products Header -->
                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                             <div>
-                                <h1 class="text-2xl font-bold text-gray-800 mb-2">Tất cả sản phẩm</h1>
+                                <h1 class="text-2xl font-bold text-gray-800 mb-2">Dược phẩm</h1>
                                 <p class="text-gray-600" id="product-count">Hiển thị 0 sản phẩm</p>
                             </div>
                             
@@ -127,6 +125,7 @@
                                     <option value="name-desc">Tên Z-A</option>
                                     <option value="price-asc">Giá thấp đến cao</option>
                                     <option value="price-desc">Giá cao đến thấp</option>
+                                    <option value="popularity">Độ phổ biến</option>
                                 </select>
                             </div>
                         </div>
@@ -178,21 +177,30 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             new BreadcrumbBanner('page-header', {
-                currentPage: 'Tất cả sản phẩm',
+                currentPage: 'Dược phẩm',
                 backgroundImage: 'https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg_bread_crumb.jpg?1705634372536'
             });
             
-            // Initialize products page with filtering
-            initProductsPage();
+            // Initialize pharmaceuticals page
+            initPharmaceuticalsPage();
         });
 
-        function initProductsPage() {
+        function initPharmaceuticalsPage() {
+            // Filter pharmaceutical products (hygiene, antiseptic, supplement, medicine)
+            const pharmaceuticalProducts = medicalProducts.filter(product => 
+                ['hygiene', 'antiseptic', 'supplement', 'medicine'].includes(product.category) ||
+                product.name.toLowerCase().includes('nước rửa tay') ||
+                product.name.toLowerCase().includes('thuốc') ||
+                product.name.toLowerCase().includes('gel') ||
+                product.brand === 'fa'
+            );
+
             // Initialize ProductGrid with pagination
             const productGrid = new ProductGrid('products-container', {
                 columns: { sm: 2, lg: 3 },
                 gap: 6,
                 showPagination: true,
-                itemsPerPage: 9,
+                itemsPerPage: 8,
                 onProductClick: function(product) {
                     window.location.href = `product-detail.html?id=${product.id}`;
                 }
@@ -200,12 +208,12 @@
 
             // Set products and render
             productGrid
-                .setProducts([...medicalProducts])
+                .setProducts([...pharmaceuticalProducts])
                 .render()
                 .setupEventListeners();
 
             // Store references for filtering
-            let allProducts = [...medicalProducts];
+            let allProducts = [...pharmaceuticalProducts];
             let filteredProducts = [...allProducts];
 
             // Update product count initially
@@ -215,11 +223,11 @@
             setupFilterListeners();
 
             function setupFilterListeners() {
+                // Pharmaceutical categories filter
+                document.getElementById('pharma-categories').addEventListener('change', applyFilters);
+                
                 // Brand filter
                 document.getElementById('brand-filter').addEventListener('change', applyFilters);
-                
-                // Type filter
-                document.getElementById('type-filter').addEventListener('change', applyFilters);
                 
                 // Price filter
                 document.getElementById('price-filter').addEventListener('change', applyFilters);
@@ -240,7 +248,7 @@
                 // Clear all filters
                 document.getElementById('clear-all-filters').addEventListener('click', function() {
                     // Clear all checkboxes and radio buttons
-                    const allInputs = document.querySelectorAll('#brand-filter input, #type-filter input, #price-filter input');
+                    const allInputs = document.querySelectorAll('#pharma-categories input, #brand-filter input, #price-filter input');
                     allInputs.forEach(input => input.checked = false);
                     
                     // Reset sort select
@@ -256,6 +264,18 @@
             function applyFilters() {
                 filteredProducts = [...allProducts];
 
+                // Apply pharmaceutical categories filter
+                const selectedCategories = Array.from(document.querySelectorAll('#pharma-categories input:checked'))
+                    .map(cb => cb.value);
+                if (selectedCategories.length > 0) {
+                    filteredProducts = filteredProducts.filter(product => 
+                        selectedCategories.includes(product.category) ||
+                        (selectedCategories.includes('hygiene') && product.name.toLowerCase().includes('nước rửa tay')) ||
+                        (selectedCategories.includes('antiseptic') && product.name.toLowerCase().includes('gel')) ||
+                        (selectedCategories.includes('medicine') && product.name.toLowerCase().includes('thuốc'))
+                    );
+                }
+
                 // Apply brand filter
                 const selectedBrands = Array.from(document.querySelectorAll('#brand-filter input:checked'))
                     .map(cb => cb.value);
@@ -265,15 +285,6 @@
                             (product.brand && product.brand.toLowerCase().includes(brand.toLowerCase())) ||
                             product.name.toLowerCase().includes(brand.toLowerCase())
                         )
-                    );
-                }
-
-                // Apply type filter
-                const selectedTypes = Array.from(document.querySelectorAll('#type-filter input:checked'))
-                    .map(cb => cb.value);
-                if (selectedTypes.length > 0) {
-                    filteredProducts = filteredProducts.filter(product => 
-                        selectedTypes.includes(product.category)
                     );
                 }
 
@@ -307,6 +318,15 @@
                         return sortedProducts.sort((a, b) => a.price - b.price);
                     case 'price-desc':
                         return sortedProducts.sort((a, b) => b.price - a.price);
+                    case 'popularity':
+                        // Sort by commonly used pharmaceutical brands
+                        return sortedProducts.sort((a, b) => {
+                            const popularBrands = ['fa', 'pharmasept', 'aqua'];
+                            const aPopular = popularBrands.includes(a.brand) ? 0 : 1;
+                            const bPopular = popularBrands.includes(b.brand) ? 0 : 1;
+                            if (aPopular !== bPopular) return aPopular - bPopular;
+                            return a.price - b.price; // Lower price first for pharmaceuticals
+                        });
                     default:
                         return sortedProducts;
                 }

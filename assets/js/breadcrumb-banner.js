@@ -19,6 +19,7 @@ class BreadcrumbBanner {
         this.options = {
             currentPage: options.currentPage || 'Trang hiện tại',
             backgroundImage: options.backgroundImage || '//bizweb.dktcdn.net/100/382/483/themes/758809/assets/breadcrumb-bg.jpg?1705909553460',
+            breadcrumbs: options.breadcrumbs || [],
             
             ...options
         };
@@ -53,6 +54,14 @@ class BreadcrumbBanner {
                             <a href="index.html" class="hover:text-cyan-300 transition-colors duration-300">
                                 Trang chủ
                             </a>
+                            ${this.options.breadcrumbs.map(crumb => `
+                                <span class="mx-2">
+                                    <i class="fas fa-chevron-right text-xs"></i>
+                                </span>
+                                <a href="${crumb.url}" class="hover:text-cyan-300 transition-colors duration-300">
+                                    ${crumb.title}
+                                </a>
+                            `).join('')}
                             <span class="mx-2">
                                 <i class="fas fa-chevron-right text-xs"></i>
                             </span>

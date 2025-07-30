@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EgoMedi - Tin tức</title>
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Breadcrumb Banner JS -->
+    <script src="../assets/js/breadcrumb-banner.js"></script>
+</head>
+<body class="bg-gray-50 p-0 font-montserrat relative" style="background-image: url('https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg-bottom-right.png?1705909553460'); background-repeat: no-repeat; background-position: bottom right; background-attachment: fixed; background-size: auto;">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Breadcrumb Banner -->
+    <div id="page-header"></div>
+
+    <!-- Main Content -->
+    <main>
+        <section class="py-10 px-4 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <!-- News Area -->
+                <div>
+                        <!-- News Header -->
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                            <h1 class="text-3xl font-bold text-gray-800">Tin tức</h1>
+
+                            <!-- Sort Options -->
+                            <div class="flex items-center gap-4">
+                                <span class="text-gray-600">Sắp xếp:</span>
+                                <select id="sort-select" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                                    <option value="newest">Mới nhất</option>
+                                    <option value="oldest">Cũ nhất</option>
+                                    <option value="most-viewed">Xem nhiều nhất</option>
+                                    <option value="alphabetical">Theo tên A-Z</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- News Grid Container -->
+                        <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- News items will be dynamically loaded here -->
+                        </div>
+
+                        <!-- Pagination -->
+                        <div id="pagination-container" class="flex justify-center mt-8">
+                            <nav class="flex items-center space-x-2">
+                                <button class="px-3 py-2 text-gray-500 border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50" disabled>
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="px-3 py-2 bg-cyan-500 text-white border border-cyan-500 rounded-md">1</button>
+                                <button class="px-3 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50">2</button>
+                                <button class="px-3 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50">3</button>
+                                <button class="px-3 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Action Buttons (FAB) on left side -->
+    <div class="fab-container">
+        <!-- Zalo Button -->
+        <div class="fab-button zalo">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        
+        <!-- Messenger Button -->
+        <div class="fab-button messenger">
+            <i class="fab fa-facebook-messenger"></i>
+        </div>
+        
+        <!-- Phone Button -->
+        <div class="fab-button phone">
+            <i class="fas fa-phone"></i>
+        </div>
+        
+        <!-- Help/Question Button (Largest) -->
+        <div class="fab-button large help">
+            <i class="far fa-question-circle"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // News articles data structure
+        const newsData = [
+            {
+                id: 1,
+                title: "Vinmec lập các chốt kiểm dịch 2019 – nCoV",
+                author: "Ego Creative",
+                date: "30/03/2020",
+                image: "https://bizweb.dktcdn.net/thumb/large/100/382/483/articles/kham-suc-khoe-the-xanh-la-gi-1.jpg?v=1585508387523",
+                category: "Tin tức y tế",
+                tags: ["COVID-19", "Vinmec", "Kiểm dịch", "Y tế"],
+                excerpt: "Để phòng chống dịch bệnh COVID-19, Vinmec đã lập các chốt kiểm dịch tại tất cả các cơ sở để đảm bảo an toàn cho bệnh nhân và nhân viên y tế.",
+                views: 1234,
+                publishDate: new Date("2020-03-30")
+            },
+            {
+                id: 2,
+                title: "Biến chứng của phẫu thuật cắt túi mật nội soi",
+                author: "Ego Creative",
+                date: "30/03/2020",
+                image: "https://bizweb.dktcdn.net/thumb/large/100/382/483/articles/auc1576544994.jpg?v=1585508274013",
+                category: "Phương pháp điều trị",
+                tags: ["Phẫu thuật", "Túi mật", "Nội soi", "Biến chứng"],
+                excerpt: "Phẫu thuật cắt túi mật nội soi là phương pháp hiện đại, ít xâm lấn. Tuy nhiên, cần hiểu rõ về các biến chứng có thể xảy ra để có sự chuẩn bị tốt nhất.",
+                views: 987,
+                publishDate: new Date("2020-03-30")
+            },
+            {
+                id: 3,
+                title: "Sỏi túi mật hình thành thế nào và điều trị ra sao?",
+                author: "Ego Creative",
+                date: "29/03/2020",
+                image: "https://bizweb.dktcdn.net/thumb/large/100/382/483/articles/20190218-105741-902066-goi-kham-suc-khoe-max-800x800.jpg?v=1585508206147",
+                category: "Bệnh học",
+                tags: ["Sỏi túi mật", "Điều trị", "Bệnh học", "Tiêu hóa"],
+                excerpt: "Sỏi túi mật là bệnh lý phổ biến, có thể gây ra nhiều biến chứng nghiêm trọng. Hiểu rõ nguyên nhân và phương pháp điều trị giúp phòng ngừa hiệu quả.",
+                views: 1567,
+                publishDate: new Date("2020-03-29")
+            },
+            {
+                id: 4,
+                title: "Các phương pháp điều trị u tuyến thượng thận",
+                author: "Ego Creative",
+                date: "28/03/2020",
+                image: "https://bizweb.dktcdn.net/thumb/large/100/382/483/articles/thumbnail.jpg?v=1585508103373",
+                category: "Phương pháp điều trị",
+                tags: ["U tuyến thượng thận", "Điều trị", "Nội tiết", "Phẫu thuật"],
+                excerpt: "U tuyến thượng thận cần được phát hiện và điều trị sớm. Các phương pháp điều trị hiện đại giúp tăng hiệu quả và giảm tác dụng phụ.",
+                views: 845,
+                publishDate: new Date("2020-03-28")
+            },
+            {
+                id: 5,
+                title: "Phẫu thuật điều trị hẹp khúc nối bể thận - niệu quản",
+                author: "Ego Creative",
+                date: "27/03/2020",
+                image: "https://bizweb.dktcdn.net/thumb/large/100/382/483/articles/can-zinc-really-help-protect-you-from-covid-19-800x600.jpg?v=1585508015070",
+                category: "Phương pháp điều trị",
+                tags: ["Phẫu thuật", "Thận", "Niệu quản", "Hẹp khúc nối"],
+                excerpt: "Hẹp khúc nối bể thận - niệu quản là bệnh lý tiết niệu phổ biến. Phẫu thuật nội soi là phương pháp điều trị hiệu quả và ít xâm lấn.",
+                views: 692,
+                publishDate: new Date("2020-03-27")
+            },
+            {
+                id: 6,
+                title: "Những lưu ý quan trọng trước khi khám sức khỏe tổng quát",
+                author: "Ego Creative",
+                date: "26/03/2020",
+                image: "https://bizweb.dktcdn.net/thumb/large/100/382/483/articles/menomonie-prepares-for-covid-19-800x600.jpg?v=1585507918543",
+                category: "Mẹo sức khỏe",
+                tags: ["Khám sức khỏe", "Tổng quát", "Lưu ý", "Chuẩn bị"],
+                excerpt: "Chuẩn bị kỹ càng trước khi khám sức khỏe tổng quát giúp kết quả chính xác hơn và tiết kiệm thời gian. Hãy lưu ý những điều quan trọng sau.",
+                views: 1123,
+                publishDate: new Date("2020-03-26")
+            },
+            {
+                id: 7,
+                title: "Có nên trì hoãn việc tiêm chủng trong đợt dịch Covid-19?",
+                author: "Ego Creative",
+                date: "25/03/2020",
+                image: "https://bizweb.dktcdn.net/thumb/large/100/382/483/articles/covid-800-x-600.jpg?v=1585507806647",
+                category: "Phòng chống bệnh tật",
+                tags: ["COVID-19", "Tiêm chủng", "Phòng bệnh", "Vaccine"],
+                excerpt: "Trong thời kỳ dịch COVID-19, nhiều người băn khoăn về việc có nên tiếp tục tiêm chủng hay không. Chuyên gia khuyến cáo điều gì?",
+                views: 2156,
+                publishDate: new Date("2020-03-25")
+            },
+            {
+                id: 8,
+                title: "Tầm quan trọng của việc tập thể dục đối với sức khỏe tim mạch",
+                author: "Ego Creative",
+                date: "24/03/2020",
+                image: "https://bizweb.dktcdn.net/thumb/large/100/382/483/articles/kham-suc-khoe-the-xanh-la-gi-1.jpg?v=1585508387523",
+                category: "Mẹo sức khỏe",
+                tags: ["Tim mạch", "Tập thể dục", "Sức khỏe", "Phòng bệnh"],
+                excerpt: "Tập thể dục thường xuyên là chìa khóa để duy trì sức khỏe tim mạch tốt. Tìm hiểu những bài tập phù hợp và lợi ích của việc vận động.",
+                views: 876,
+                publishDate: new Date("2020-03-24")
+            },
+            {
+                id: 9,
+                title: "Dinh dưỡng hợp lý cho người bệnh tiểu đường",
+                author: "Ego Creative",
+                date: "23/03/2020",
+                image: "https://bizweb.dktcdn.net/thumb/large/100/382/483/articles/auc1576544994.jpg?v=1585508274013",
+                category: "Dinh dưỡng",
+                tags: ["Tiểu đường", "Dinh dưỡng", "Chế độ ăn", "Đường huyết"],
+                excerpt: "Chế độ dinh dưỡng khoa học giúp người bệnh tiểu đường kiểm soát đường huyết hiệu quả và ngăn ngừa biến chứng.",
+                views: 1432,
+                publishDate: new Date("2020-03-23")
+            },
+            {
+                id: 10,
+                title: "Công nghệ AI trong chẩn đoán hình ảnh y khoa",
+                author: "Ego Creative",
+                date: "22/03/2020",
+                image: "https://bizweb.dktcdn.net/thumb/large/100/382/483/articles/thumbnail.jpg?v=1585508103373",
+                category: "Công nghệ y tế",
+                tags: ["AI", "Trí tuệ nhân tạo", "Chẩn đoán", "Hình ảnh y khoa"],
+                excerpt: "Trí tuệ nhân tạo đang cách mạng hóa lĩnh vực chẩn đoán hình ảnh y khoa, giúp phát hiện bệnh sớm và chính xác hơn.",
+                views: 654,
+                publishDate: new Date("2020-03-22")
+            }
+        ];
+
+        let currentNewsData = [...newsData]; // Copy of original data for filtering/sorting
+        let currentPage = 1;
+        const itemsPerPage = 9;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            new BreadcrumbBanner('page-header', {
+                currentPage: 'Tin tức',
+                backgroundImage: 'https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg_bread_crumb.jpg?1705634372536'
+            });
+            
+            // Initialize news page functionality
+            initNewsPage();
+        });
+
+        function initNewsPage() {
+            // Setup sort functionality
+            setupSortHandlers();
+            
+            // Load initial news
+            loadNewsArticles();
+            
+            // Setup pagination
+            setupPagination();
+        }
+
+        function setupSortHandlers() {
+            // Sort select
+            document.getElementById('sort-select').addEventListener('change', function() {
+                applySort(this.value);
+            });
+        }
+
+        function loadNewsArticles(page = 1) {
+            const container = document.getElementById('news-container');
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const articlesToShow = currentNewsData.slice(startIndex, endIndex);
+            
+            // Clear container
+            container.innerHTML = '';
+            
+            // Generate articles
+            articlesToShow.forEach(article => {
+                const articleElement = createNewsArticle(article);
+                container.appendChild(articleElement);
+            });
+            
+            // Update news count
+            updateNewsCount();
+            
+            // Add hover effects
+            addHoverEffects();
+            
+            // Update pagination
+            updatePagination();
+        }
+
+        function createNewsArticle(article) {
+            const articleElement = document.createElement('article');
+            articleElement.className = 'bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow duration-300';
+            
+            articleElement.innerHTML = `
+                <div class="relative">
+                    <img src="${article.image}" 
+                         alt="${article.title}" 
+                         class="w-full h-48 object-cover">
+                    <span class="absolute top-2 left-2 bg-[#14DBF4] bg-opacity-70 text-white text-xs px-2 py-1 rounded">
+                        ${article.date}
+                    </span>
+                </div>
+                <div class="p-4">
+                    <div class="text-sm text-gray-500 mb-2">
+                        <span>Đăng bởi: ${article.author}</span>
+                    
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2 line-clamp-2 hover:text-cyan-500 transition-colors duration-200">
+                        <a href="news-detail.html?id=${article.id}" class="hover:underline">${article.title}</a>
+                    </h3>
+                   
+                  
+                </div>
+            `;
+            
+            return articleElement;
+        }
+
+        function applySort(sortValue) {
+            switch(sortValue) {
+                case 'newest':
+                    currentNewsData.sort((a, b) => b.publishDate - a.publishDate);
+                    break;
+                case 'oldest':
+                    currentNewsData.sort((a, b) => a.publishDate - b.publishDate);
+                    break;
+                case 'most-viewed':
+                    currentNewsData.sort((a, b) => b.views - a.views);
+                    break;
+                case 'alphabetical':
+                    currentNewsData.sort((a, b) => a.title.localeCompare(b.title, 'vi'));
+                    break;
+                default:
+                    currentNewsData = [...newsData];
+            }
+            
+            currentPage = 1;
+            loadNewsArticles(currentPage);
+        }
+
+        function updateNewsCount() {
+            const totalArticles = currentNewsData.length;
+            const startIndex = (currentPage - 1) * itemsPerPage + 1;
+            const endIndex = Math.min(currentPage * itemsPerPage, totalArticles);
+            
+            // Update header if exists
+            const header = document.querySelector('.text-3xl.font-bold');
+            if (header) {
+                header.innerHTML = `Tin tức`;
+            }
+        }
+
+        function setupPagination() {
+            // Add click handlers for pagination
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.pagination-btn')) {
+                    const btn = e.target.closest('.pagination-btn');
+                    const page = parseInt(btn.dataset.page);
+                    
+                    if (!isNaN(page) && page !== currentPage) {
+                        currentPage = page;
+                        loadNewsArticles(currentPage);
+                        
+                        // Scroll to top of news container
+                        document.getElementById('news-container').scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+                
+                if (e.target.closest('.pagination-prev')) {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        loadNewsArticles(currentPage);
+                    }
+                }
+                
+                if (e.target.closest('.pagination-next')) {
+                    const totalPages = Math.ceil(currentNewsData.length / itemsPerPage);
+                    if (currentPage < totalPages) {
+                        currentPage++;
+                        loadNewsArticles(currentPage);
+                    }
+                }
+            });
+        }
+
+        function updatePagination() {
+            const totalPages = Math.ceil(currentNewsData.length / itemsPerPage);
+            const paginationContainer = document.getElementById('pagination-container');
+            
+            if (totalPages <= 1) {
+                paginationContainer.style.display = 'none';
+                return;
+            }
+            
+            paginationContainer.style.display = 'flex';
+            
+            let paginationHTML = '<nav class="flex items-center space-x-2">';
+            
+            // Previous button
+            paginationHTML += `
+                <button class="pagination-prev px-3 py-2 text-gray-500 border border-gray-300 rounded-md hover:bg-gray-50 ${currentPage === 1 ? 'disabled:opacity-50 cursor-not-allowed' : ''}" 
+                        ${currentPage === 1 ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            `;
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                    paginationHTML += `
+                        <button class="pagination-btn px-3 py-2 border rounded-md ${i === currentPage ? 'bg-cyan-500 text-white border-cyan-500' : 'text-gray-700 border-gray-300 hover:bg-gray-50'}" 
+                                data-page="${i}">
+                            ${i}
+                        </button>
+                    `;
+                } else if (i === currentPage - 2 || i === currentPage + 2) {
+                    paginationHTML += '<span class="px-2 text-gray-500">...</span>';
+                }
+            }
+            
+            // Next button
+            paginationHTML += `
+                <button class="pagination-next px-3 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50 ${currentPage === totalPages ? 'disabled:opacity-50 cursor-not-allowed' : ''}"
+                        ${currentPage === totalPages ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            `;
+            
+            paginationHTML += '</nav>';
+            paginationContainer.innerHTML = paginationHTML;
+        }
+
+        function addHoverEffects() {
+            // Add smooth transitions to news cards
+            const newsCards = document.querySelectorAll('#news-container article');
+            newsCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        }
+
+        // Search functionality (if needed in the future)
+        function searchNews(query) {
+            if (!query.trim()) {
+                currentNewsData = [...newsData];
+            } else {
+                currentNewsData = newsData.filter(article => 
+                    article.title.toLowerCase().includes(query.toLowerCase()) ||
+                    article.excerpt.toLowerCase().includes(query.toLowerCase()) ||
+                    article.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase())) ||
+                    article.category.toLowerCase().includes(query.toLowerCase())
+                );
+            }
+            
+            currentPage = 1;
+            loadNewsArticles(currentPage);
+        }
+
+        // Filter by category (if needed in the future)
+        function filterByCategory(category) {
+            if (!category || category === 'all') {
+                currentNewsData = [...newsData];
+            } else {
+                currentNewsData = newsData.filter(article => 
+                    article.category === category
+                );
+            }
+            
+            currentPage = 1;
+            loadNewsArticles(currentPage);
+        }
+
+        // Export functions for potential external use
+        window.newsManager = {
+            searchNews,
+            filterByCategory,
+            loadNewsArticles,
+            newsData
+        };
+    </script>
+
+    <style>
+        /* Custom styles for line-clamp */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Smooth transitions */
+        #news-container article {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        /* Tag hover effects */
+        #popular-tags span {
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</body>
+</html>
