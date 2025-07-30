@@ -73,7 +73,7 @@ class ProductGrid {
         return `
             <div class="bg-white rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300 group cursor-pointer product-item" 
                  data-product-id="${product.id}">
-                <a href="product-detail.html?id=${product.id}" class="block">
+                <a href="../products/product-detail.html?id=${product.id}" class="block">
                     <div class="p-4">
                         <div class="h-60 flex items-center justify-center mb-3 bg-white relative overflow-hidden">
                             <img src="${product.image}" 
@@ -138,15 +138,40 @@ class ProductGrid {
         if (!this.options.showPagination) return;
 
         const totalPages = Math.ceil(this.products.length / this.options.itemsPerPage);
-        if (totalPages <= 1) return;
+        
+        // Tìm pagination container
+        const paginationContainer = document.getElementById('pagination-container');
+        
+        if (totalPages <= 1) {
+            // Xóa pagination nếu chỉ có 1 trang
+            if (paginationContainer) {
+                paginationContainer.innerHTML = '';
+            } else {
+                this.removePagination();
+            }
+            return;
+        }
 
         const paginationHTML = `
-            <div class="flex justify-center mt-8 space-x-2">
+            <div class="flex justify-center space-x-2">
                 ${this.generatePaginationButtons(totalPages)}
             </div>
         `;
 
-        this.container.insertAdjacentHTML('afterend', paginationHTML);
+        // Sử dụng pagination container có sẵn nếu có, nếu không thì tạo mới
+        if (paginationContainer) {
+            paginationContainer.innerHTML = paginationHTML;
+        } else {
+            // Xóa pagination cũ trước khi tạo mới (fallback cho trường hợp không có container)
+            this.removePagination();
+            
+            const fallbackHTML = `
+                <div class="pagination-wrapper flex justify-center mt-8 space-x-2">
+                    ${this.generatePaginationButtons(totalPages)}
+                </div>
+            `;
+            this.container.insertAdjacentHTML('afterend', fallbackHTML);
+        }
     }
 
     /**
@@ -298,7 +323,7 @@ class ProductGrid {
     }
 }
 
-// Dữ liệu sản phẩm mẫu
+// Dữ liệu sản phẩm mẫu (cập nhật để loại bỏ rating)
 const medicalProducts = [
     {
         id: 'may-xong-mui-hong',
@@ -306,7 +331,7 @@ const medicalProducts = [
         price: 1130000,
         image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/may-xong-mui-hong-beurer-ih26-duc-5d37bdc406a19-24072019090908-ced00d13-cf7f-4b2c-b1ad-1081447c94ea.jpg?v=1585558027640',
         category: 'medical-device',
-        rating: 4.5
+        brand: 'beurer'
     },
     {
         id: 'khau-trang-vai',
@@ -315,8 +340,7 @@ const medicalProducts = [
         originalPrice: 120000,
         image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/khau-trang-vai-khang-khuan-nagakawa-t4-b5e0c130-a26e-43d4-8c9e-cf0243b9442c.jpg?v=1585557895613',
         category: 'protection',
-        badge: 'Sale',
-        rating: 4.2
+        brand: 'nagakawa'
     },
     {
         id: 'may-do-huyet-ap',
@@ -325,51 +349,74 @@ const medicalProducts = [
         originalPrice: 900000,
         image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-huyet-ap-co-tay-beurer-bc30-6b297beb-3565-4c5e-bfbe-1c34b167f35d.jpg?v=1585510030550',
         category: 'medical-device',
-        rating: 4.8
+        brand: 'beurer'
     },
     {
         id: 'con-rua-tay',
         name: 'Cồn rửa tay',
-        price: 999000,
+        price: 99000,
         originalPrice: 150000,
         image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/nuoc-rua-tay-kho-sat-khuan-dr-kovik-500ml-1-d1ebe3e0-246c-4961-ac3b-d72c82f8dfe0-364f065d-a3d1-4d79-992d-26f24cdc48e6.jpg?v=1585557952817',
         category: 'hygiene',
-        badge: 'Hot',
-        rating: 4.0
+        brand: 'dr-kovik'
     },
     {
         id: 'nhiet-ke-dien-tu',
         name: 'Nhiệt kế điện tử',
         price: 350000,
         image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/ne-c801kd-1.jpg?v=1585510284053',
-        category: 'medical-device',
-        rating: 4.3
+        category: 'thermometer',
+        brand: 'omron'
     },
     {
-        id: 'may-xong-mui-hong',
-        name: 'Máy xông mũi họng',
-        price: 1130000,
+        id: 'may-xong-mui-hong-omron',
+        name: 'Máy xông mũi họng Omron',
+        price: 1300000,
         image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/ne-c801kd-1.jpg?v=1585510284053',
-        category: 'protection',
-        rating: 4.1
+        category: 'medical-device',
+        brand: 'omron'
     },
     {
         id: 'may-do-duong-huyet',
-        name: 'Máy đo huyết áp cổ tay',
-        price: 6000000,
+        name: 'Máy đo đường huyết',
+        price: 600000,
         originalPrice: 700000,
         image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/4975479417108.jpg?v=1585510012327',
         category: 'medical-device',
-        rating: 4.6
+        brand: 'omron'
     },
     {
         id: 'nuoc-rua-tay-kho',
-        name: 'Nước rửa tay khô',
-        price: 9999000,
+        name: 'Nước rửa tay khô sat khuẩn',
+        price: 99000,
         originalPrice: 150000,
         image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/nuoc-rua-tay-kho-sat-khuan-dr-kovik-500ml-1.jpg?v=1585509678107',
-        category: 'therapy',
-        rating: 4.4
+        category: 'hygiene',
+        brand: 'dr-kovik'
+    },
+    {
+        id: 'nhiet-ke-hong-ngoai-bliss',
+        name: 'Nhiệt kế hồng ngoại Bliss NC900P',
+        price: 1450000,
+        image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-nhiet-do-hong-ngoai-bliss-nc900p-1.jpg?v=1585510284053',
+        category: 'thermometer',
+        brand: 'bliss'
+    },
+    {
+        id: 'nhiet-ke-xuat-su-duc',
+        name: 'Nhiệt kế hồng ngoại xuất sứ Đức',
+        price: 1280000,
+        image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-nhiet-do-hong-ngoai-beurer-ft90-duc-1.jpg?v=1585510284053',
+        category: 'thermometer',
+        brand: 'beurer'
+    },
+    {
+        id: 'nhiet-ke-do-tran',
+        name: 'Nhiệt kế hồng ngoại đo trán',
+        price: 1450000,
+        image: '//bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-nhiet-do-hong-ngoai-do-tran-beurer-ft85-duc-1.jpg?v=1585510284053',
+        category: 'thermometer',
+        brand: 'beurer'
     }
 ];
 

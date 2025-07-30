@@ -107,32 +107,6 @@ function updateProductDetails(product) {
         originalPriceElement.classList.add('hidden');
     }
 
-    // Update product rating
-    const ratingElement = document.getElementById('product-rating');
-    if (product.rating) {
-        const stars = Array.from({length: 5}, (_, i) => {
-            const filled = i < Math.floor(product.rating);
-            const half = !filled && i < Math.ceil(product.rating) && product.rating % 1 !== 0;
-            
-            let starClass = 'far fa-star text-gray-400'; // Empty star
-            if (filled) starClass = 'fas fa-star text-yellow-400'; // Filled star
-            if (half) starClass = 'fas fa-star-half-alt text-yellow-400'; // Half star
-            
-            return `<i class="${starClass}"></i>`;
-        }).join('');
-
-        ratingElement.innerHTML = `
-            <div class="flex space-x-1 mr-2">
-                ${stars}
-            </div>
-            <span class="text-gray-600">(${product.rating}/5)</span>
-        `;
-    } else {
-        ratingElement.innerHTML = `
-            <span class="text-gray-600">Chưa có đánh giá</span>
-        `;
-    }
-
     // Update product description
     // In a real scenario, this would come from the product data
     document.getElementById('product-description').innerHTML = product.description || `

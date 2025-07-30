@@ -19,7 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
 // Load Header Component
 async function loadHeader() {
     try {
-        const response = await fetch('./components/header.html');
+        // Detect if we're in a subfolder
+        const isInSubfolder = window.location.pathname.includes('/products/') || 
+                             window.location.pathname.includes('/appointment/') || 
+                             document.querySelector('script[src*="../assets/js/main.js"]');
+        
+        const headerPath = isInSubfolder ? '../components/header.html' : './components/header.html';
+        const response = await fetch(headerPath);
         const headerHTML = await response.text();
         document.getElementById('header').innerHTML = headerHTML;
         
@@ -199,7 +205,13 @@ function setActiveMenuItem() {
 // Load Footer Component
 async function loadFooter() {
     try {
-        const response = await fetch('./components/footer.html');
+        // Detect if we're in a subfolder
+        const isInSubfolder = window.location.pathname.includes('/products/') || 
+                             window.location.pathname.includes('/appointment/') || 
+                             document.querySelector('script[src*="../assets/js/main.js"]');
+        
+        const footerPath = isInSubfolder ? '../components/footer.html' : './components/footer.html';
+        const response = await fetch(footerPath);
         const footerHTML = await response.text();
         document.getElementById('footer').innerHTML = footerHTML;
     } catch (error) {

@@ -12,8 +12,8 @@
     content: '';
     position: absolute;
     top: 0;
-    left: -10%;
-    width: 113%;
+    left: -20%;
+    width: 120%;
     height: 100%;
     background: #14dbf4;
     transform: translateX(-100%);

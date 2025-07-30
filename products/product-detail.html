@@ -21,12 +21,13 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/product-detail.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/product-detail.css">
+    <link rel="stylesheet" href="../assets/css/product-menu-fix.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Breadcrumb Banner JS -->
-    <script src="./assets/js/breadcrumb-banner.js"></script>
+    <script src="../assets/js/breadcrumb-banner.js"></script>
 </head>
 <body class="bg-gray-50 p-0 font-montserrat relative" style="background-image: url('https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg-bottom-right.png?1705909553460'); background-repeat: no-repeat; background-position: bottom right; background-attachment: fixed; background-size: auto;">
     <!-- Header -->
@@ -63,11 +64,6 @@
                             <span id="product-original-price" class="text-lg text-gray-500 line-through ml-3"></span>
                         </div>
 
-                        <!-- Product Rating -->
-                        <div id="product-rating" class="flex items-center mb-6">
-                            <!-- Will be populated by JavaScript -->
-                        </div>
-
                         <!-- Product Description -->
                         <div class="mb-6">
                             <h3 class="text-lg font-medium mb-2">Mô tả sản phẩm</h3>
@@ -88,38 +84,18 @@
 
                         <!-- Call to Action Buttons -->
                         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-                            <button id="add-to-cart" class="flex-1 bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full text-sm transition-all duration-300 flex items-center justify-center">
+                            <button id="add-to-cart" class="btn-blue-wave flex-1 bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full text-sm transition-all duration-300 flex items-center justify-center">
                                 <i class="fas fa-shopping-cart mr-2"></i>
                                 Thêm vào giỏ hàng
                             </button>
-                            <button id="buy-now" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-sm transition-all duration-300 flex items-center justify-center">
+                            <button id="buy-now" class="btn-blue-wave flex-1  bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-sm transition-all duration-300 flex items-center justify-center">
                                 <i class="fas fa-bolt mr-2"></i>
                                 Mua ngay
                             </button>
                         </div>
                         
                         <!-- Additional Info -->
-                        <div class="mt-8 border-t border-gray-200 pt-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <!-- Shipping Info -->
-                                <div class="flex items-center">
-                                    <i class="fas fa-truck text-cyan-500 mr-3 text-xl"></i>
-                                    <div>
-                                        <h4 class="font-medium">Giao hàng miễn phí</h4>
-                                        <p class="text-sm text-gray-600">Cho đơn hàng trên 500.000₫</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Return Policy -->
-                                <div class="flex items-center">
-                                    <i class="fas fa-undo text-cyan-500 mr-3 text-xl"></i>
-                                    <div>
-                                        <h4 class="font-medium">Đổi trả dễ dàng</h4>
-                                        <p class="text-sm text-gray-600">Trong vòng 30 ngày</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
 
@@ -137,11 +113,7 @@
                                     Thông số kỹ thuật
                                 </a>
                             </li>
-                            <li>
-                                <a class="tab-link inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" data-tab="reviews">
-                                    Đánh giá sản phẩm
-                                </a>
-                            </li>
+                            
                         </ul>
                     </div>
                     
@@ -210,9 +182,9 @@
     <div id="footer"></div>
 
     <!-- JavaScript -->
-    <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/product-grid.js"></script>
-    <script src="./assets/js/product-detail.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/product-grid.js"></script>
+    <script src="../assets/js/product-detail.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             new BreadcrumbBanner('page-header', {
