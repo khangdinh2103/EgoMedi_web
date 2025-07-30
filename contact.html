@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EgoMedi - Liên hệ</title>
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/fab.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Breadcrumb Banner JS -->
+    <script src="assets/js/breadcrumb-banner.js"></script>
+</head>
+<body class="bg-white p-0 font-montserrat relative" >
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Breadcrumb Banner -->
+    <div id="page-header"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Contact Map Section with Overlay -->
+        <section class="relative ">
+            <!-- Map Container -->
+            <div class="w-full  h-[500px]">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.319311825943!2d106.66421081408054!3d10.786993161986832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed23c80767d%3A0x5a981a5efee9fd7d!2zVMOgbmcgRywgMjY2IERpZW4gQmnhur1uIFBodSwgRGnhu4duIDEsIFFUIDEsIEhvQ2hpIE1pbmggQ2l0eSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1609459200000!5m2!1sen!2s"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            
+            <!-- Overlay Content Container -->
+            <div class="absolute inset-0 pointer-events-none">
+                <div class="max-w-7xl mx-12 px-4 sm:px-6 lg:px-8 h-full flex items-end">
+                    <div class="w-full pointer-events-auto transform translate-y-2/3">
+                        <div class="bg-white rounded-lg overflow-hidden">
+                            <div class="grid grid-cols-1 lg:grid-cols-2">
+                                <!-- Contact Information -->
+                                <div class="p-8 lg:p-12 bg-white">
+                                    <!-- Logo and Description -->
+                                    <div class="flex items-center space-x-4 mb-6">
+                                        <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/logo.png?1705909553460" 
+                                             alt="EgoMedi Logo" 
+                                             class="h-12">
+                                        <div>
+                                            <h2 class="text-xl font-bold text-gray-800">EgoMedi</h2>
+                                            <p class="text-cyan-500 font-medium text-sm">MEDICAL CENTER</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-gray-600 mb-6">
+                                        <p class="text-sm leading-relaxed">
+                                            Ego Medical Center tự hào về các kỹ năng 
+                                            được đào tạo căn thiết chất lượng về phòng và điều trị bệnh 
+                                            viêm gan mạn tính, và các bệnh khác với đội ngũ 
+                                            bác sĩ chuyên nghiệp và tận tâm.
+                                        </p>
+                                    </div>
+
+                                    <!-- Contact Details -->
+                                    <div class="space-y-4">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-map-marker-alt text-cyan-500 text-sm mt-1"></i>
+                                            </div>
+                                            <div>
+                                               
+                                                <p class="text-gray-600 text-sm">Tầng 6, 266 Điện Biên Phủ, Ba Đình, Hà Nội</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-start space-x-3">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-envelope text-cyan-500 text-sm mt-1"></i>
+                                            </div>
+                                            <div>
+                                               
+                                                <a href="mailto:ego.deploy@gmail.com" class="text-gray-600 hover:text-cyan-600 text-sm">
+                                                    ego.deploy@gmail.com
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-start space-x-3">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-phone text-cyan-500 text-sm mt-1"></i>
+                                            </div>
+                                            <div>
+                                               
+                                                <a href="tel:19006750" class="text-gray-600 hover:text-cyan-600 text-sm">
+                                                    1900 6750
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Contact Form -->
+                                <div class="p-8 lg:p-12 bg-white">
+                                    <h2 class="text-xl font-bold text-gray-800 mb-6 text-center">Nhập thông tin của bạn</h2>
+                                    
+                                    <form id="contact-form" class="space-y-4">
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            <div>
+                                                <input 
+                                                    type="text" 
+                                                    id="full-name" 
+                                                    name="fullName" 
+                                                    required
+                                                    class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                                                    placeholder="Tên của bạn">
+                                            </div>
+                                            <div>
+                                                <input 
+                                                    type="tel" 
+                                                    id="phone" 
+                                                    name="phone" 
+                                                    required
+                                                    class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                                                    placeholder="Số điện thoại">
+                                            </div>
+                                        </div>
+
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            <div>
+                                                <input 
+                                                    type="email" 
+                                                    id="email" 
+                                                    name="email" 
+                                                    required
+                                                    class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                                                    placeholder="Email">
+                                            </div>
+                                            <div>
+                                                <input 
+                                                    type="text" 
+                                                    id="address" 
+                                                    name="address" 
+                                                    class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                                                    placeholder="Địa chỉ">
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <textarea 
+                                                id="message" 
+                                                name="message" 
+                                                rows="4" 
+                                                required
+                                                class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none"
+                                                placeholder="Nội dung"></textarea>
+                                        </div>
+
+                                        <div class="text-center pt-2">
+                                            <button 
+                                                type="submit" 
+                                                class="btn-blue-wave bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 transform hover:scale-105 text-sm">
+                                                <i class="fas fa-paper-plane mr-2"></i>
+                                                Gửi ngay
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Spacer to account for overlay -->
+        <section class="h-96 bg-white"></section>
+    </main>
+
+    <!-- Floating Action Buttons (FAB) on left side -->
+    <div class="fab-container">
+        <!-- Zalo Button -->
+        <div class="fab-button zalo">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        
+        <!-- Messenger Button -->
+        <div class="fab-button messenger">
+            <i class="fab fa-facebook-messenger"></i>
+        </div>
+        
+        <!-- Phone Button -->
+        <div class="fab-button phone">
+            <i class="fas fa-phone"></i>
+        </div>
+        
+        <!-- Help/Question Button (Largest) -->
+        <div class="fab-button large help">
+            <i class="far fa-question-circle"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize breadcrumb banner
+            new BreadcrumbBanner('page-header', {
+                currentPage: 'Liên hệ',
+                backgroundImage: 'https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg_bread_crumb.jpg?1705634372536'
+            });
+            
+            // Initialize contact form functionality
+            initContactForm();
+        });
+
+        function initContactForm() {
+            const contactForm = document.getElementById('contact-form');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const data = {
+                    fullName: formData.get('fullName'),
+                    phone: formData.get('phone'),
+                    email: formData.get('email'),
+                    address: formData.get('address'),
+                    message: formData.get('message')
+                };
+                
+                // Validate required fields
+                if (!data.fullName || !data.phone || !data.email || !data.message) {
+                    showNotification('Vui lòng điền đầy đủ thông tin bắt buộc!', 'error');
+                    return;
+                }
+                
+                // Validate email format
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    showNotification('Vui lòng nhập địa chỉ email hợp lệ!', 'error');
+                    return;
+                }
+                
+                // Validate phone number (basic Vietnamese phone number format)
+                const phoneRegex = /^[0-9]{10,11}$/;
+                if (!phoneRegex.test(data.phone.replace(/[\s\-\(\)]/g, ''))) {
+                    showNotification('Vui lòng nhập số điện thoại hợp lệ!', 'error');
+                    return;
+                }
+                
+                // Simulate form submission
+                submitContactForm(data);
+            });
+        }
+
+        function submitContactForm(data) {
+            // Show loading state
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Đang gửi...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Show success message
+                showNotification('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.', 'success');
+                
+                // Reset form
+                document.getElementById('contact-form').reset();
+            }, 2000);
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-md text-white font-medium transition-all duration-300 transform translate-x-full max-w-md`;
+            
+            // Set colors based on type
+            if (type === 'success') {
+                notification.classList.add('bg-green-500');
+            } else if (type === 'error') {
+                notification.classList.add('bg-red-500');
+            } else {
+                notification.classList.add('bg-blue-500');
+            }
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Hide notification after 5 seconds
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }, 5000);
+        }
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to contact info items
+            const contactItems = document.querySelectorAll('.flex.items-start.space-x-4');
+            contactItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                    this.style.transition = 'transform 0.2s ease-in-out';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+
+            // Add focus animations to form inputs
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'scale(1.02)';
+                    this.parentElement.style.transition = 'transform 0.2s ease-in-out';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Custom animations for contact page */
+        .contact-item {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Overlay Container Styles */
+        .overlay-container {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Map responsive and overlay */
+        @media (max-width: 768px) {
+            .overlay-container .transform {
+                transform: translateY(20%) !important;
+            }
+            
+            .overlay-container .grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .overlay-container .bg-white {
+                margin: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .overlay-container .transform {
+                transform: translateY(10%) !important;
+            }
+            
+            .overlay-container .p-8 {
+                padding: 1rem !important;
+            }
+            
+            .overlay-container .lg\\:p-12 {
+                padding: 1.5rem !important;
+            }
+        }
+
+        /* Form animations */
+        .form-group {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-group::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00bcd4, transparent);
+            transition: left 0.5s;
+        }
+
+        .form-group:focus-within::before {
+            left: 100%;
+        }
+
+        /* Button hover effects */
+        .btn-contact {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-contact:hover::before {
+            left: 100%;
+        }
+
+        
+
+        /* Ensure map doesn't interfere with interactions */
+        .map-container iframe {
+            pointer-events: auto;
+        }
+        
+        .overlay-content {
+            pointer-events: none;
+        }
+        
+        .overlay-content > * {
+            pointer-events: auto;
+        }
+    </style>
+</body>
+</html>
