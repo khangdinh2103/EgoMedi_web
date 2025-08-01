@@ -35,9 +35,14 @@ class ProductGrid {
             return;
         }
 
-        const productsToShow = this.options.showPagination 
-            ? this.getPaginatedProducts() 
-            : this.products;
+        let productsToShow;
+        if (this.options.showPagination) {
+            productsToShow = this.getPaginatedProducts();
+        } else if (this.options.limitProducts) {
+            productsToShow = this.products.slice(0, this.options.limitProducts);
+        } else {
+            productsToShow = this.products;
+        }
 
         const gridHTML = this.generateGridHTML(productsToShow);
         this.container.innerHTML = gridHTML;
@@ -432,6 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
         columns: { sm: 2, lg: 4 },
         gap: 8,
         showPagination: false,
+        limitProducts: 8, // Chỉ hiển thị 8 sản phẩm đầu tiên trên trang home
         onProductClick: function(product) {
             // Xử lý khi click vào sản phẩm
             console.log('Sản phẩm được chọn:', product);
