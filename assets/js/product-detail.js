@@ -242,18 +242,65 @@ function setupEventListeners(product) {
     const addToCartBtn = document.getElementById('add-to-cart');
     addToCartBtn.addEventListener('click', () => {
         const quantity = parseInt(quantityInput.value);
-        console.log(`Added ${quantity} ${product.name}(s) to cart`);
-        // In a real implementation, you would add the product to the cart
-        alert(`Đã thêm ${quantity} ${product.name} vào giỏ hàng!`);
+        
+        // Create product object for cart
+        const cartProduct = {
+            id: product.id,
+            name: product.name,
+            image: product.image,
+            price: product.price
+        };
+        
+        // Add to cart (if cart.js is loaded)
+        if (typeof addToCart === 'function') {
+            // Add multiple quantities
+            for (let i = 0; i < quantity; i++) {
+                addToCart(cartProduct);
+            }
+        } else {
+            // Fallback if cart.js is not loaded
+            console.log(`Added ${quantity} ${product.name}(s) to cart`);
+            if (typeof showNotification === 'function') {
+                showNotification(`Đã thêm ${quantity} ${product.name} vào giỏ hàng!`, 'success');
+            } else {
+                alert(`Đã thêm ${quantity} ${product.name} vào giỏ hàng!`);
+            }
+        }
     });
 
     // Buy now button
     const buyNowBtn = document.getElementById('buy-now');
     buyNowBtn.addEventListener('click', () => {
         const quantity = parseInt(quantityInput.value);
-        console.log(`Buy now: ${quantity} ${product.name}(s)`);
-        // In a real implementation, you would redirect to checkout
-        alert(`Đang chuyển đến trang thanh toán cho ${quantity} ${product.name}!`);
+        
+        // Create product object for cart
+        const cartProduct = {
+            id: product.id,
+            name: product.name,
+            image: product.image,
+            price: product.price
+        };
+        
+        // Add to cart first (if cart.js is loaded)
+        if (typeof addToCart === 'function') {
+            // Add multiple quantities
+            for (let i = 0; i < quantity; i++) {
+                addToCart(cartProduct);
+            }
+            
+            // Redirect to cart page
+            setTimeout(() => {
+                window.location.href = '../cart.html';
+            }, 500);
+        } else {
+            // Fallback if cart.js is not loaded
+            console.log(`Buy now: ${quantity} ${product.name}(s)`);
+            if (typeof showNotification === 'function') {
+                showNotification(`Đang chuyển đến trang thanh toán cho ${quantity} ${product.name}!`, 'info');
+            } else {
+                alert(`Đang chuyển đến trang thanh toán cho ${quantity} ${product.name}!`);
+            }
+        }
     });
 
     // Tab switching

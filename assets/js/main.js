@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initContactForm();
     
+    // Initialize cart count after a short delay to ensure header is loaded
+    setTimeout(() => {
+        if (typeof updateHeaderCartCount === 'function') {
+            updateHeaderCartCount();
+        }
+    }, 200);
+    
     console.log('EgoMedi website loaded successfully!');
 });
 
@@ -128,6 +135,15 @@ function setActiveMenuItem() {
             
             // For products page, ensure dropdown items are black by default
             if (isProductsPage && itemPage === 'products.html') {
+                const dropdownLinks = item.querySelectorAll('.absolute a');
+                dropdownLinks.forEach(dropLink => {
+                    dropLink.classList.remove('text-cyan-400', 'text-cyan-600');
+                    dropLink.classList.add('text-black');
+                });
+            }
+            
+            // For appointment page, ensure dropdown items are black by default
+            if (currentPage.includes('appointment') && itemPage === 'appointment.html') {
                 const dropdownLinks = item.querySelectorAll('.absolute a');
                 dropdownLinks.forEach(dropLink => {
                     dropLink.classList.remove('text-cyan-400', 'text-cyan-600');

@@ -70,6 +70,15 @@
     color: #00bcd4 !important;
 }
 
+/* Override dropdown links in active nav-item to keep them black */
+.nav-item.active .absolute a {
+    color: #000000 !important;
+}
+
+.nav-item.active .absolute a:hover {
+    color: #00bcd4 !important;
+}
+
 /* Mobile active menu item styles */
 .mobile-nav-item.active-mobile {
     background-color: rgba(0, 188, 212, 0.05);
@@ -285,4 +294,147 @@
 
 #mobile-menu.show {
     max-height: 500px;
+}
+
+/* Cart Page Styles */
+.cart-item {
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    background-color: rgba(0, 188, 212, 0.02);
+}
+
+.quantity-input {
+    border: none;
+    text-align: center;
+    font-weight: 500;
+}
+
+.quantity-input:focus {
+    outline: none;
+    ring: 0;
+}
+
+.quantity-decrease,
+.quantity-increase {
+    transition: all 0.2s ease;
+}
+
+.quantity-decrease:hover,
+.quantity-increase:hover {
+    background-color: rgba(0, 188, 212, 0.1);
+    color: #00bcd4;
+}
+
+.remove-item {
+    transition: all 0.2s ease;
+}
+
+.remove-item:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+    border-radius: 4px;
+}
+
+/* Cart animations */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Removed fadeInUp animation from cart-item */
+
+/* Cart total animation */
+#cart-total {
+    transition: all 0.3s ease;
+}
+
+#cart-total.updating {
+    transform: scale(1.1);
+    color: #00bcd4;
+}
+
+/* Empty cart illustration */
+#empty-cart i {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive cart styles */
+@media (max-width: 640px) {
+    .cart-item .flex {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .cart-item .flex-shrink-0 {
+        align-self: center;
+    }
+    
+    .cart-item .text-right {
+        text-align: center;
+    }
+}
+
+/* Header Cart Button Styles */
+.cart-button-mobile {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.cart-button-mobile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.2);
+}
+
+.cart-button-mobile a,
+.cart-button-mobile span {
+    position: relative;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.cart-button-mobile:hover a,
+.cart-button-mobile:hover span {
+    color: #00bcd4 !important;
+}
+
+/* Cart count badge animation */
+/* Cart bounce animation removed for better performance */
+
+/* Header cart icon animation */
+.cart-button-mobile i {
+    transition: all 0.3s ease;
+}
+
+.cart-button-mobile:hover i {
+    color: #00bcd4;
+    transform: scale(1.1);
 }

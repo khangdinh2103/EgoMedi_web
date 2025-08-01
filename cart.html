@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EgoMedi - Giỏ hàng</title>
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/fab.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Breadcrumb Banner JS -->
+    <script src="./assets/js/breadcrumb-banner.js"></script>
+</head>
+<body class="bg-gray-50 p-0 font-montserrat relative" style="background-image: url('https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg-bottom-right.png?1705909553460'); background-repeat: no-repeat; background-position: bottom right; background-attachment: fixed; background-size: auto;">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Breadcrumb Banner -->
+    <div id="page-header"></div>
+
+    <!-- Main Content -->
+    <main>
+        <section class="py-10 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Cart Header -->
+                <div class="mb-8">
+                    <h1 class="text-2xl font-bold text-gray-800 mb-2">GIỎ HÀNG CỦA BẠN</h1>
+                </div>
+
+                <!-- Cart Content -->
+                <div id="cart-content">
+                    <!-- Cart Items Container -->
+                    <div id="cart-items" class="bg-white rounded-lg shadow-sm border overflow-hidden">
+                        <!-- Cart item will be inserted here by JavaScript -->
+                    </div>
+
+                    <!-- Cart Summary -->
+                    <div class="mt-8 bg-white rounded-lg shadow-sm border p-6">
+                        <div class="flex justify-between items-center text-lg font-semibold mb-4">
+                            <span>Tổng tiền:</span>
+                            <span id="cart-total" class="text-xl text-red-600">99.000₫</span>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button id="continue-shopping" class="flex-1 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-md transition-all duration-300 font-medium hover:shadow-md">
+                                <i class="fas fa-arrow-left mr-2"></i>Tiếp tục mua hàng
+                            </button>
+                            <button id="proceed-checkout" class="flex-1 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-md transition-all duration-300 font-medium hover:shadow-md hover:-translate-y-0.5">
+                                <i class="fas fa-credit-card mr-2"></i>Tiến hành thanh toán
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty Cart Message (hidden by default) -->
+                <div id="empty-cart" class="text-center py-16 hidden">
+                    <div class="max-w-md mx-auto">
+                        <i class="fas fa-shopping-cart text-6xl text-gray-300 mb-4"></i>
+                        <h2 class="text-2xl font-semibold text-gray-600 mb-2">Giỏ hàng trống</h2>
+                        <p class="text-gray-500 mb-6">Bạn chưa có sản phẩm nào trong giỏ hàng.</p>
+                        <a href="products/products.html" class="inline-block px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-md transition-colors duration-300 font-medium">
+                            <i class="fas fa-shopping-bag mr-2"></i>Tiếp tục mua sắm
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Action Buttons (FAB) on left side -->
+    <div class="fab-container">
+        <!-- Zalo Button -->
+        <div class="fab-button zalo">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        
+        <!-- Messenger Button -->
+        <div class="fab-button messenger">
+            <i class="fab fa-facebook-messenger"></i>
+        </div>
+        
+        <!-- Phone Button -->
+        <div class="fab-button phone">
+            <i class="fas fa-phone"></i>
+        </div>
+        
+        <!-- Help/Question Button (Largest) -->
+        <div class="fab-button large help">
+            <i class="far fa-question-circle"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize breadcrumb banner
+            new BreadcrumbBanner('page-header', {
+                currentPage: 'Giỏ hàng',
+                backgroundImage: 'https://bizweb.dktcdn.net/100/382/483/themes/758809/assets/bg_bread_crumb.jpg?1705634372536'
+            });
+            
+            // Initialize cart
+            initCart();
+        });
+    </script>
+</body>
+</html>

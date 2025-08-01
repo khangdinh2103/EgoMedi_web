@@ -231,8 +231,26 @@ class ProductGrid {
                 if (productItem) {
                     const productId = productItem.dataset.productId;
                     const product = this.products.find(p => p.id === productId);
-                    // Add to cart functionality
-                    alert(`Đã thêm ${product.name} vào giỏ hàng!`);
+                    
+                    // Create product object for cart
+                    const cartProduct = {
+                        id: product.id,
+                        name: product.name,
+                        image: product.image,
+                        price: product.price
+                    };
+                    
+                    // Add to cart (if cart.js is loaded)
+                    if (typeof addToCart === 'function') {
+                        addToCart(cartProduct);
+                    } else {
+                        // Fallback if cart.js is not loaded
+                        if (typeof showNotification === 'function') {
+                            showNotification(`Đã thêm ${product.name} vào giỏ hàng!`, 'success');
+                        } else {
+                            alert(`Đã thêm ${product.name} vào giỏ hàng!`);
+                        }
+                    }
                 }
                 return;
             }

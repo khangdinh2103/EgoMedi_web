@@ -113,12 +113,11 @@
         <div class="text-gray-400 mx-4 hidden md:block">|</div>
 
         <!-- Cart - always visible -->
-        <button class="bg-white p-2 flex items-center focus:outline-none cart-button-mobile">
+      <div class="bg-white p-2 flex items-center focus:outline-none cart-button-mobile">
           <i class="fas fa-shopping-basket mr-2 text-xl text-gray-800"></i>
-          <span class="font-bold text-gray-800 hover:text-cyan-400 transition-colors duration-200">Giỏ hàng (0)</span>
-        </button>
+          <a href="../cart.html" class="font-bold text-gray-800 hover:text-cyan-400 transition-colors duration-200" >Giỏ hàng (0)</a>
       </div>
-    </div>
+      </div>
     
     <!-- Mobile Menu Panel - shown when hamburger is clicked -->
     <div id="mobile-menu-panel" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden opacity-0 transition-opacity duration-300">
@@ -189,7 +188,7 @@
             <div class="flex items-center justify-between px-4 py-3">
               <div class="flex items-center">
                 <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
-                <a href="../products.html" class="text-[15px] text-gray-800">Sản phẩm</a>
+                <a href="../products/products.html" class="text-[15px] text-gray-800">Sản phẩm</a>
               </div>
               <span class="text-lg text-gray-400 font-bold mobile-dropdown-toggle">+</span>
             </div>
@@ -234,5 +233,80 @@
       </div>
     </div>
   </header>
+
+  <script>
+    // Navigate to cart page
+    
+
+    // Update cart count in header
+    function updateHeaderCartCount() {
+      // Get cart items from localStorage
+      let cartItems = [];
+      try {
+        const savedCart = localStorage.getItem('egoMediCart');
+        if (savedCart) {
+          cartItems = JSON.parse(savedCart);
+        }
+      } catch (error) {
+        console.error('Error loading cart from storage:', error);
+      }
+
+      // Calculate total quantity
+      const totalCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+
+      // Update cart button text - check for both span and a elements
+      const cartButtons = document.querySelectorAll('.cart-button-mobile a, .cart-button-mobile span');
+      cartButtons.forEach(button => {
+        button.textContent = `Giỏ hàng (${totalCount})`;
+      });
+
+      // Also update any other cart count displays
+      const cartCountElements = document.querySelectorAll('[data-cart-count]');
+      cartCountElements.forEach(element => {
+        element.textContent = totalCount;
+      });
+    }
+
+    // Initialize cart count when header loads
+    document.addEventListener('DOMContentLoaded', function() {
+      updateHeaderCartCount();
+      
+      // Setup cart navigation
+      setupCartNavigation();
+      
+      // Listen for storage changes (when cart is updated from other pages)
+      window.addEventListener('storage', function(e) {
+        if (e.key === 'egoMediCart') {
+          updateHeaderCartCount();
+        }
+      });
+
+      // Listen for custom cart update events
+      window.addEventListener('cartUpdated', function() {
+        updateHeaderCartCount();
+      });
+    });
+
+    // Setup cart navigation with correct path
+    function setupCartNavigation() {
+      const cartLinks = document.querySelectorAll('.cart-button-mobile a');
+      cartLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Detect if we're in a subfolder
+          const isInSubfolder = window.location.pathname.includes('/products/') || 
+                               window.location.pathname.includes('/appointment/') || 
+                               document.querySelector('script[src*="../assets/js/main.js"]');
+          
+          const cartUrl = isInSubfolder ? '../cart.html' : './cart.html';
+          window.location.href = cartUrl;
+        });
+      });
+    }
+
+    // Make function globally available
+    window.updateHeaderCartCount = updateHeaderCartCount;
+  </script>
 </body>
 </html>
