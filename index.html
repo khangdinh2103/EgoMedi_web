@@ -30,18 +30,18 @@
     <div id="header"></div>
 
     <!-- Slider Section -->
-    <section class="relative w-full h-[600px] overflow-hidden">
+    <section class="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] overflow-hidden">
         <div class="relative w-full h-full">
             <img src="//bizweb.dktcdn.net/thumb/large/100/382/483/themes/758809/assets/slider_1.jpg?1705909553460" 
                  alt="EgoMedi Slider" 
-                 class="w-full h-full object-cover">
+                 class="w-full h-full object-cover object-center">
             
             <!-- Optional overlay for better text readability if needed -->
             <div class="absolute inset-0 bg-black bg-opacity-20"></div>
             
             <!-- Optional slide content overlay -->
             <div class="absolute inset-0 flex items-center justify-center">
-                <div class="text-center text-white z-10">
+                <div class="text-center text-white z-10 px-4">
                     <!-- You can add slide content here if needed -->
                 </div>
             </div>
@@ -59,22 +59,22 @@
                 <div class="about-content">
                     <!-- Left side - 4 buttons -->
                     <div class="about-left">
-                        <div class="feature-grid">
-                            <div class="feature-item text-left">
-                                <div class="feature-number">1</div>
-                                <h3 class="feature-title">Thiết bị hiện đại</h3>
+                        <div class="feature-grid responsive-feature-grid">
+                            <div class="feature-item text-left responsive-feature-item">
+                                <div class="feature-number responsive-feature-number">1</div>
+                                <h3 class="feature-title responsive-feature-title">Thiết bị hiện đại</h3>
                             </div>
-                            <div class="feature-item text-left">
-                                <div class="feature-number">2</div>
-                                <h3 class="feature-title">Chất lượng cao</h3>
+                            <div class="feature-item text-left responsive-feature-item">
+                                <div class="feature-number responsive-feature-number">2</div>
+                                <h3 class="feature-title responsive-feature-title">Chất lượng cao</h3>
                             </div>
-                            <div class="feature-item text-left">
-                                <div class="feature-number">3</div>
-                                <h3 class="feature-title">Đội ngũ lành nghề</h3>
+                            <div class="feature-item text-left responsive-feature-item">
+                                <div class="feature-number responsive-feature-number">3</div>
+                                <h3 class="feature-title responsive-feature-title">Đội ngũ lành nghề</h3>
                             </div>
-                            <div class="feature-item text-left">
-                                <div class="feature-number">4</div>
-                                <h3 class="feature-title">Chăm sóc chu đáo</h3>
+                            <div class="feature-item text-left responsive-feature-item">
+                                <div class="feature-number responsive-feature-number">4</div>
+                                <h3 class="feature-title responsive-feature-title">Chăm sóc chu đáo</h3>
                             </div>
                         </div>
                     </div>
@@ -113,11 +113,10 @@
                             </div>
                             
                             <div class="about-button">
-                                <button class="btn-blue-wave bg-cyan-500 text-white px-8 py-2 rounded-full font-semibold hover:bg-cyan-600 transition duration-300" 
-                                        style="background-color: #00bcd4; border: none; cursor: pointer;"
-                                        onclick="alert('Đặt lịch ngay!')">
+                                <a href="appointment.html" class="btn-blue-wave bg-cyan-500 text-white px-8 py-2 rounded-full font-semibold hover:bg-cyan-600 transition duration-300 inline-block" 
+                                        style="background-color: #00bcd4; border: none; cursor: pointer; text-decoration: none;">
                                     Đặt lịch ngay →
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -127,8 +126,8 @@
 
         
          <!-- Medical Tests Section -->
-        <section class="py-20  bg-gray-100 px-8 ">
-            <div class="max-w-7xl mx-auto px-16 sm:px-6 lg:px-16 ">
+        <section class="py-20  bg-gray-100 px-4 ">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 ">
                 <!-- Section Title -->
                 <div class="text-center mb-16 relative">
                 <!-- Chữ nền phía sau -->
@@ -149,64 +148,64 @@
                <!-- Tests Grid -->
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8 mb-20">
                 <!-- Tầm soát ung thư -->
-                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                <a href="appointment/cancer-screening.html" class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
                     data-test="cancer-screening">
                     <div class="mb-4 transition-all duration-300 flex justify-center">
                     <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_1.png?1705909553460" alt="Tầm soát ung thư"
                         class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
                     </div>
                     <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Tầm soát ung thư</h3>
-                </div>
+                </a>
 
                 <!-- Mô học -->
-                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                <a href="appointment/histology.html" class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
                     data-test="histology">
                     <div class="mb-4 transition-all duration-300 flex justify-center">
                     <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_2.png?1705909553460" alt="Mô học"
                         class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
                     </div>
                     <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Mô học</h3>
-                </div>
+                </a>
 
                 <!-- Khám tổng quát -->
-                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                <a href="appointment/general-checkup.html" class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
                     data-test="general-exam">
                     <div class="mb-4 transition-all duration-300 flex justify-center">
                     <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_3.png?1705909553460" alt="Khám tổng quát"
                         class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
                     </div>
                     <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Khám tổng quát</h3>
-                </div>
+                </a>
 
                 <!-- Xét nghiệm máu -->
-                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                <a href="appointment/blood-test.html" class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
                     data-test="blood-test">
                     <div class="mb-4 transition-all duration-300 flex justify-center">
                     <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_4.png?1705909553460" alt="Xét nghiệm máu"
                         class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
                     </div>
                     <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Xét nghiệm máu</h3>
-                </div>
+                </a>
 
                 <!-- Xét nghiệm di truyền -->
-                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                <a href="appointment/genetic-test.html" class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
                     data-test="genetic-test">
                     <div class="mb-4 transition-all duration-300 flex justify-center">
                     <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_5.png?1705909553460" alt="Xét nghiệm di truyền"
                         class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
                     </div>
                     <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Xét nghiệm di truyền</h3>
-                </div>
+                </a>
 
                 <!-- Tế bào học -->
-                <div class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
+                <a href="appointment/cytology.html" class="test-item bg-white rounded-md shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:bg-cyan-500 group"
                     data-test="cytology">
                     <div class="mb-4 transition-all duration-300 flex justify-center">
                     <img src="//bizweb.dktcdn.net/100/382/483/themes/758809/assets/icon_tab_6.png?1705909553460" alt="Tế bào học"
                         class="w-16 h-16 object-contain group-hover:invert group-hover:brightness-0 group-hover:contrast-200 transition duration-300">
                     </div>
                     <h3 class="text-[13px] font-semibold text-gray-800 font-montserrat group-hover:text-white">Tế bào học</h3>
-                </div>
+                </a>
                 </div>
 
 
@@ -261,12 +260,12 @@
                         </div>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mt-8">
-                            <button class="btn-blue-wave h-10 w-auto bg-cyan-500 hover:bg-cyan-600 text-white text-[13px] px-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 font-montserrat">
+                            <a href="appointment/cancer-screening.html" class="btn-blue-wave h-10 w-auto bg-cyan-500 hover:bg-cyan-600 text-white text-[13px] px-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 font-montserrat inline-flex items-center justify-center text-center">
                                 Xem thêm ››
-                            </button>
-                            <button class="btn-blue-wave h-10 w-auto bg-cyan-500 hover:bg-cyan-600 text-white text-[13px] px-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 font-montserrat">
+                            </a>
+                            <a href="appointment.html" class="btn-blue-wave h-10 w-auto bg-cyan-500 hover:bg-cyan-600 text-white text-[13px] px-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 font-montserrat inline-flex items-center justify-center text-center">
                                 Đặt lịch ngay →
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -313,11 +312,17 @@
                     </div>
                 </div>
 
-                <!-- Products Grid 4x2 -->
-                <div id="products-container" class="mb-12">
+                <!-- Products Grid 2x2 on mobile -->
+                <div id="products-container" class="mb-8">
                     <!-- Products will be dynamically generated by JavaScript -->
                 </div>
 
+                <!-- View All Products Button -->
+                <div class="text-center">
+                    <a href="products/products.html" class="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 font-montserrat inline-block">
+                        Xem tất cả sản phẩm →
+                    </a>
+                </div>
                 
             </div>
         </section>

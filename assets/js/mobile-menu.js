@@ -168,7 +168,10 @@ function setupMobileAccordions() {
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (mobileMenuPanel && 
+        const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        
+        if (mobileMenuPanel && mobileMenuButton &&
             !mobileMenuPanel.contains(event.target) && 
             !mobileMenuButton.contains(event.target) &&
             !mobileMenuPanel.classList.contains('hidden')) {

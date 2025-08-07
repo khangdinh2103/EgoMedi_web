@@ -1,7 +1,7 @@
 <!-- Header Component -->
 <header style="font-family: 'Montserrat', sans-serif;">
   <!-- Top Bar -->
-  <div class="bg-[#00bcd4] text-white py-3 px-4">
+  <div class="bg-[#00bcd4] text-white py-3 px-4 hidden md:block">
     <div class="container mx-auto flex justify-between items-center text-sm px-8">
       <div class="flex items-center space-x-6">
         <div class="flex items-center">
@@ -19,9 +19,9 @@
       </div>
       <!-- Login/Register links - hidden on mobile -->
       <div class="hidden md:flex items-center space-x-2">
-        <a href="#" class="text-white hover:text-cyan-200 transition-colors duration-200">Đăng nhập</a>
+        <a href="login.html" class="text-white hover:text-cyan-200 transition-colors duration-200">Đăng nhập</a>
         <span>/</span>
-        <a href="#" class="text-white hover:text-cyan-200 transition-colors duration-200">Đăng ký</a>
+        <a href="register.html" class="text-white hover:text-cyan-200 transition-colors duration-200">Đăng ký</a>
       </div>
     </div>
   </div>
@@ -141,10 +141,10 @@
         <!-- Login/Register -->
         <div class="px-4 py-3 border-b border-gray-200">
           <div class="flex gap-4">
-            <a href="/login" class="text-gray-600  hover:underline">
+            <a href="login.html" class="text-gray-600  hover:underline">
               Đăng nhập
             </a>
-            <a href="/register" class="text-gray-600 hover:underline">
+            <a href="register.html" class="text-gray-600 hover:underline">
               Đăng ký
             </a>
           </div>
@@ -274,6 +274,9 @@
       // Setup cart navigation
       setupCartNavigation();
       
+      // Setup login navigation
+      setupLoginNavigation();
+      
       // Listen for storage changes (when cart is updated from other pages)
       window.addEventListener('storage', function(e) {
         if (e.key === 'egoMediCart') {
@@ -301,6 +304,25 @@
           
           const cartUrl = isInSubfolder ? '../cart.html' : './cart.html';
           window.location.href = cartUrl;
+        });
+      });
+    }
+
+    // Setup login navigation with correct path
+    function setupLoginNavigation() {
+      const loginLinks = document.querySelectorAll('a[href="login.html"], a[href="register.html"]');
+      loginLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Detect if we're in a subfolder
+          const isInSubfolder = window.location.pathname.includes('/products/') || 
+                               window.location.pathname.includes('/appointment/') || 
+                               document.querySelector('script[src*="../assets/js/main.js"]');
+          
+          const originalHref = this.getAttribute('href');
+          const correctUrl = isInSubfolder ? '../' + originalHref : './' + originalHref;
+          window.location.href = correctUrl;
         });
       });
     }

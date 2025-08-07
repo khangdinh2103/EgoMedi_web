@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cart - EgoMedi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 p-4">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-2xl font-bold mb-4">Test Cart Functionality</h1>
+        
+        <!-- Test buttons -->
+        <div class="mb-4 space-x-2">
+            <button onclick="testAddProduct()" class="bg-blue-500 text-white px-4 py-2 rounded">Add Test Product 1</button>
+            <button onclick="testAddProductString()" class="bg-green-500 text-white px-4 py-2 rounded">Add Test Product 2 (String ID)</button>
+            <button onclick="clearCart()" class="bg-red-500 text-white px-4 py-2 rounded">Clear Cart</button>
+        </div>
+        
+        <!-- Cart Content -->
+        <div id="cart-content">
+            <div id="cart-items" class="mb-8">
+                <!-- Cart items will be inserted here by JavaScript -->
+            </div>
+            
+            <!-- Cart Summary -->
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <div class="flex justify-between items-center text-xl font-bold mb-8">
+                    <span class="text-gray-900">Tổng tiền</span>
+                    <span id="cart-total" class="text-gray-900">0₫</span>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="flex-1 px-8 py-4 bg-white border-2 border-cyan-500 text-cyan-500 rounded-full transition-all duration-300 font-semibold hover:bg-cyan-50 flex items-center justify-center text-base">
+                        <i class="fas fa-arrow-left mr-2"></i>Tiếp tục mua hàng
+                    </button>
+                    <button class="flex-1 px-8 py-4 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full transition-all duration-300 font-semibold hover:shadow-lg flex items-center justify-center text-base">
+                        <i class="fas fa-check mr-2"></i>Tiến hành thanh toán
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Empty Cart Message -->
+        <div id="empty-cart" class="text-center py-8 hidden">
+            <p class="text-gray-500">Giỏ hàng trống</p>
+        </div>
+    </div>
+    
+    <script src="./assets/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart for testing
+            initCart();
+        });
+    </script>
+</body>
+</html>
