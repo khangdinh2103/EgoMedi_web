@@ -59,7 +59,7 @@ class ProductGrid {
      * @param {Array} products - Sản phẩm cần hiển thị
      */
     generateGridHTML(products) {
-        const gridClasses = `grid grid-cols-1 sm:grid-cols-${this.options.columns.sm} lg:grid-cols-${this.options.columns.lg} gap-${this.options.gap}`;
+        const gridClasses = `grid grid-cols-2 sm:grid-cols-${this.options.columns.sm} lg:grid-cols-${this.options.columns.lg} gap-${this.options.gap}`;
         
         const productsHTML = products.map(product => this.generateProductCard(product)).join('');
         
@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function() {
         columns: { sm: 2, lg: 4 },
         gap: 6,
         showPagination: false,
-        limitProducts: 4, // Hiển thị 4 sản phẩm (2x2 trên mobile) trên trang home
+        limitProducts: 8, // Hiển thị 8 sản phẩm (4x2 trên desktop, 2x2 trên mobile) trên trang home
         onProductClick: function(product) {
             // Xử lý khi click vào sản phẩm
             console.log('Sản phẩm được chọn:', product);
