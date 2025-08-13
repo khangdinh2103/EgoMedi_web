@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Tìm kiếm sản phẩm - EgoMedi</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="assets/css/products.css" />
+</head>
+<body style="font-family: 'Montserrat', sans-serif;">
+	<!-- Header -->
+	<div id="header-placeholder"></div>
+
+	<main class="container mx-auto px-4 py-8">
+		<!-- Search bar on page -->
+		<div class="max-w-2xl mx-auto mb-8">
+			<div class="relative">
+				<input id="page-search-input" type="text" placeholder="Tìm sản phẩm..." class="w-full px-5 py-4 pr-14 border border-gray-300 rounded-full focus:outline-none focus:border-cyan-400 transition-colors" />
+				<button id="page-search-button" class="absolute right-2 top-1/2 -translate-y-1/2 bg-cyan-500 hover:bg-cyan-600 text-white px-5 py-2 rounded-full transition-colors">
+					<i class="fas fa-search"></i>
+				</button>
+			</div>
+		</div>
+
+		<!-- Summary -->
+		<div class="flex items-end justify-between mb-6">
+			<h1 class="text-2xl md:text-3xl font-bold text-gray-800">Kết quả tìm kiếm</h1>
+			<div id="results-meta" class="text-gray-600"></div>
+		</div>
+
+		<!-- Results containers -->
+		<div id="results-empty" class="hidden text-center py-16">
+			<i class="fas fa-search text-5xl text-gray-300 mb-4"></i>
+			<p class="text-lg text-gray-600">Không tìm thấy sản phẩm phù hợp.</p>
+			<p class="text-gray-500">Hãy thử với từ khóa khác.</p>
+		</div>
+
+		<div id="products-container" class="min-h-[120px]"></div>
+		<div id="pagination-container" class="mt-8"></div>
+	</main>
+
+	<!-- Footer -->
+	<div id="footer-placeholder"></div>
+
+	<!-- Data + renderer -->
+	<script src="assets/js/product-grid.js"></script>
+
+	<script>
+		// Load components (header/footer)
+		function loadComponent(placeholderId, path) {
+			return fetch(path)
+				.then(r => r.text())
+				.then(html => {
+					const el = document.getElementById(placeholderId);
+					el.innerHTML = html;
+					// Re-execute inline scripts from loaded component
+					el.querySelectorAll('script').forEach(oldScript => {
+						const s = document.createElement('script');
+						if (oldScript.src) s.src = oldScript.src; else s.textContent = oldScript.textContent;
+						document.body.appendChild(s);
+					});
+				})
+				.catch(err => console.error('Load component error:', err));
+		}
+
+		function getQuery() {
+			const params = new URLSearchParams(window.location.search);
+			return (params.get('q') || '').trim();
+		}
+
+		function setQueryInUrl(q) {
+			const url = new URL(window.location);
+			if (q) url.searchParams.set('q', q); else url.searchParams.delete('q');
+			window.history.replaceState({}, '', url);
+		}
+
+		function filterProductsByQuery(all, q) {
+			if (!q) return all;
+			const needle = q.toLowerCase();
+			return all.filter(p => {
+				const fields = [p.name, p.category, p.brand, p.description].filter(Boolean).map(x => x.toLowerCase());
+				return fields.some(f => f.includes(needle));
+			});
+		}
+
+			function fixProductLinksForRootPage() {
+				// Ensure product detail links point to /products/... from root
+				document.querySelectorAll('#products-container a[href^="../products/"]').forEach(a => {
+					a.setAttribute('href', a.getAttribute('href').replace('../products/', 'products/'));
+				});
+			}
+
+			function renderResults(query) {
+			// medicalProducts and ProductGrid come from product-grid.js
+			const all = (typeof medicalProducts !== 'undefined') ? medicalProducts : [];
+			const filtered = filterProductsByQuery(all, query);
+
+			const resultsMeta = document.getElementById('results-meta');
+			const empty = document.getElementById('results-empty');
+
+			if (!filtered.length) {
+				resultsMeta.textContent = query ? `0 kết quả cho "${query}"` : '0 kết quả';
+				empty.classList.remove('hidden');
+				document.getElementById('products-container').innerHTML = '';
+				document.getElementById('pagination-container').innerHTML = '';
+				return;
+			}
+
+			empty.classList.add('hidden');
+			resultsMeta.textContent = `Tìm thấy ${filtered.length} sản phẩm${query ? ` cho "${query}"` : ''}`;
+
+			const grid = new ProductGrid('products-container', {
+				showPagination: true,
+				itemsPerPage: 8
+			});
+
+			grid
+				.setProducts(filtered)
+				.setSearchQuery(query)
+				.render()
+				.setupEventListeners();
+
+			// Fix anchor links to product detail for root page
+			fixProductLinksForRootPage();
+		}
+
+		document.addEventListener('DOMContentLoaded', async () => {
+			// Load header/footer to keep site consistent
+			await Promise.all([
+				loadComponent('header-placeholder', 'components/header.html'),
+				loadComponent('footer-placeholder', 'components/footer.html')
+			]);
+
+			// Initialize header behaviors if functions are available (since DOMContentLoaded already fired)
+			if (typeof updateHeaderCartCount === 'function') updateHeaderCartCount();
+			if (typeof setupCartNavigation === 'function') setupCartNavigation();
+			if (typeof setupLoginNavigation === 'function') setupLoginNavigation();
+			if (typeof setupSearchFunctionality === 'function') setupSearchFunctionality();
+
+			// Initialize page search field from URL
+			const input = document.getElementById('page-search-input');
+			const button = document.getElementById('page-search-button');
+			const q = getQuery();
+			if (q) input.value = q;
+
+			const triggerSearch = () => {
+				const term = input.value.trim();
+				setQueryInUrl(term);
+				renderResults(term);
+			};
+
+			button.addEventListener('click', (e) => { e.preventDefault(); triggerSearch(); });
+			input.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); triggerSearch(); } });
+
+			// First render
+			renderResults(q);
+		});
+	</script>
+
+	<style>
+		.search-highlight { background: #fef08a; padding: 0 2px; border-radius: 3px; }
+	</style>
+</body>
+</html>

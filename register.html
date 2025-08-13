@@ -170,106 +170,28 @@
         function initRegisterForm() {
             const registerForm = document.getElementById('register-form');
             
-            registerForm.addEventListener('submit', function(e) {
+            registerForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
-                // Get form data
-                const formData = new FormData(registerForm);
-                const data = {
-                    firstName: formData.get('firstName'),
-                    lastName: formData.get('lastName'),
-                    email: formData.get('email'),
-                    phone: formData.get('phone'),
-                    password: formData.get('password')
-                };
-                
-                // Validate required fields
-                for (const [key, value] of Object.entries(data)) {
-                    if (!value) {
-                        showNotification('Vui lòng điền đầy đủ thông tin!', 'error');
-                        return;
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                try {
+                    const res = await fetch('http://localhost:5000/api/users/register', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, email, password })
+                    });
+                    const data = await res.json();
+                    if (res.ok) {
+                        alert('Đăng ký thành công!');
+                        window.location.href = 'login.html';
+                    } else {
+                        alert(data.message || 'Đăng ký thất bại');
                     }
+                } catch (err) {
+                    alert('Lỗi kết nối server');
                 }
-                
-                // Validate email format
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(data.email)) {
-                    showNotification('Vui lòng nhập địa chỉ email hợp lệ!', 'error');
-                    return;
-                }
-                
-                // Validate phone format (Vietnamese phone number)
-                const phoneRegex = /^(0|\+84)(\d{9,10})$/;
-                if (!phoneRegex.test(data.phone)) {
-                    showNotification('Vui lòng nhập số điện thoại hợp lệ!', 'error');
-                    return;
-                }
-                
-                // Validate password length
-                if (data.password.length < 6) {
-                    showNotification('Mật khẩu phải có ít nhất 6 ký tự!', 'error');
-                    return;
-                }
-                
-                // Simulate registration
-                submitRegisterForm(data);
             });
-        }
-
-        function submitRegisterForm(data) {
-            // Show loading state
-            const submitBtn = document.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>ĐANG XỬ LÝ...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // Show success message
-                showNotification('Đăng ký tài khoản thành công!', 'success');
-                
-                // Redirect to login page after a delay
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 3000);
-            }, 2000);
-        }
-
-        function showNotification(message, type = 'info') {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-md text-white font-medium transition-all duration-300 transform translate-x-full max-w-md`;
-            
-            // Set colors based on type
-            if (type === 'success') {
-                notification.classList.add('bg-green-500');
-            } else if (type === 'error') {
-                notification.classList.add('bg-red-500');
-            } else {
-                notification.classList.add('bg-blue-500');
-            }
-            
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            
-            // Show notification
-            setTimeout(() => {
-                notification.classList.remove('translate-x-full');
-            }, 100);
-            
-            // Hide notification after 5 seconds
-            setTimeout(() => {
-                notification.classList.add('translate-x-full');
-                setTimeout(() => {
-                    if (document.body.contains(notification)) {
-                        document.body.removeChild(notification);
-                    }
-                }, 300);
-            }, 5000);
         }
     </script>
 </body>

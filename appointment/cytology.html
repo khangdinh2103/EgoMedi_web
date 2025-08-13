@@ -118,13 +118,16 @@
                 fetch('../components/header.html')
                     .then(response => response.text())
                     .then(html => {
-                        document.getElementById('header').innerHTML = html;
-                        
-                        // Initialize mobile menu after header is loaded
-                        initMobileMenuEvents();
-                        
-                        // Set active menu item based on current page
-                        setActiveMenuItem();
+                        const headerHost = document.getElementById('header');
+                        headerHost.innerHTML = html;
+                        headerHost.querySelectorAll('script').forEach(oldScript => {
+                            const s = document.createElement('script');
+                            if (oldScript.src) s.src = oldScript.src; else s.textContent = oldScript.textContent;
+                            document.body.appendChild(s);
+                        });
+                        if (typeof window.initHeader === 'function') window.initHeader();
+                        if (typeof initMobileMenuEvents === 'function') initMobileMenuEvents();
+                        if (typeof setActiveMenuItem === 'function') setActiveMenuItem();
                     })
                     .catch(error => console.error('Error loading header:', error));
             }

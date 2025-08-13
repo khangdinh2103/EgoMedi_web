@@ -34,7 +34,29 @@ async function loadHeader() {
         const headerPath = isInSubfolder ? '../components/header.html' : './components/header.html';
         const response = await fetch(headerPath);
         const headerHTML = await response.text();
-        document.getElementById('header').innerHTML = headerHTML;
+        const headerEl = document.getElementById('header');
+        headerEl.innerHTML = headerHTML;
+
+        // Re-execute any inline scripts from header (since innerHTML doesn't run them)
+        const inlineScripts = headerEl.querySelectorAll('script');
+        inlineScripts.forEach(oldScript => {
+            const s = document.createElement('script');
+            if (oldScript.src) {
+                // Adjust relative path if needed when in subfolder
+                let src = oldScript.getAttribute('src');
+                if (src && isInSubfolder && src.startsWith('./')) {
+                    src = src.replace('./', '../');
+                }
+                s.src = src || oldScript.src;
+            } else {
+                s.textContent = oldScript.textContent;
+            }
+            document.body.appendChild(s);
+        });
+        // If initHeader becomes available after script execution, call it (idempotent)
+        if (typeof window.initHeader === 'function') {
+            window.initHeader();
+        }
         
         // Initialize mobile menu after header is loaded
         initMobileMenuEvents();
@@ -626,21 +648,9 @@ function showNotification(message, type = 'info') {
 }
 
 // Search functionality
-function initSearch() {
-    const searchInput = document.querySelector('input[placeholder="Tìm kiếm..."]');
-    if (searchInput) {
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                const searchTerm = this.value.trim();
-                if (searchTerm) {
-                    // Implement search functionality
-                    console.log('Searching for:', searchTerm);
-                    showNotification(`Đang tìm kiếm: ${searchTerm}`, 'info');
-                }
-            }
-        });
-    }
-}
+// function initSearch() {
+//     // Đã vô hiệu hóa để tránh chặn chuyển trang search trong header.html
+// }
 
 // Utility Functions
 function throttle(func, wait) {

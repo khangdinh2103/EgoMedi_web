@@ -27,6 +27,26 @@ class ProductGrid {
     }
 
     /**
+     * Thiết lập từ khóa tìm kiếm để highlight
+     * @param {string} query - Từ khóa tìm kiếm
+     */
+    setSearchQuery(query) {
+        this.searchQuery = query;
+        return this;
+    }
+
+    /**
+     * Highlight từ khóa trong text
+     * @param {string} text - Text cần highlight
+     * @param {string} query - Từ khóa tìm kiếm
+     */
+    highlightText(text, query) {
+        if (!query || !text) return text;
+        const regex = new RegExp(`(${query})`, 'gi');
+        return text.replace(regex, '<span class="search-highlight">$1</span>');
+    }
+
+    /**
      * Render grid sản phẩm
      */
     render() {
@@ -90,7 +110,7 @@ class ProductGrid {
                                 <i class="fas fa-shopping-basket text-gray-700 group-hover/cart:text-white transition-colors duration-300"></i>
                             </button>
                         </div>
-                        <h3 class="text-gray-700 font-medium mb-3 font-montserrat text-center text-sm leading-tight">${product.name}</h3>
+                        <h3 class="text-gray-700 font-medium mb-3 font-montserrat text-center text-sm leading-tight">${this.searchQuery ? this.highlightText(product.name, this.searchQuery) : product.name}</h3>
                         <div class="text-center">
                             <span class="text-gray-800 font-bold text-base font-montserrat">${this.formatPrice(product.price)}</span>
                             ${discountHTML}
